@@ -1,0 +1,35 @@
+{{/* schema.org Person structured data for the homepage.
+
+     Tells search engines who this site belongs to and links it to the same
+     person's Google Scholar / LinkedIn / GitHub / ORCID profiles (`sameAs`).
+     For a common name, that link is what lets Google tell this Min Li
+     apart from others. Everything is read from data/authors/me.yaml. */}}
+{{ if .IsHome }}
+{{ with hugo.Data.authors.me }}
+  {{ $sameAs := slice }}
+  {{ range .links }}
+    {{ with .url }}{{ if hasPrefix . "http" }}{{ $sameAs = $sameAs | append . }}{{ end }}{{ end }}
+  {{ end }}
+  {{ $alumni := slice }}
+  {{ range .education }}
+    {{ if .end }}{{ $alumni = $alumni | append (dict "@type" "CollegeOrUniversity" "name" .institution) }}{{ end }}
+  {{ end }}
+  {{ $person := dict
+      "@context" "https://schema.org"
+      "@type" "Person"
+      "name" .name.display
+      "givenName" .name.given
+      "familyName" .name.family
+      "url" site.Home.Permalink
+      "jobTitle" .role
+      "knowsAbout" .interests
+      "sameAs" $sameAs
+  }}
+  {{ with .name.alternate }}{{ $person = merge $person (dict "alternateName" .) }}{{ end }}
+  {{ with $alumni }}{{ $person = merge $person (dict "alumniOf" .) }}{{ end }}
+  {{ with resources.Get "media/authors/me.png" }}
+    {{ $person = merge $person (dict "image" (.Fill "400x400 Center webp").Permalink) }}
+  {{ end }}
+  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{ end }}
+{{ end }}

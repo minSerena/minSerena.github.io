@@ -1,0 +1,38 @@
+{{/* Custom block: Awards & Recognition. Named `honors` because the theme reserves
+     `awards` as an alias for its own resume-awards block.
+     Usage in content/_index.md:   - block: honors
+                                     id: awards
+                                     content: { title: ..., text: ... }
+     Entries come from data/awards.yaml (year, title, optional note), newest first.
+
+     The title wrapper reuses the theme's collection-block markup so it picks up the
+     same left-aligned title / accent bar / description styles as the other sections
+     (assets/css/hbx/blocks/shared/site/custom.css). */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ with hugo.Data.awards }}
+  {{ with index $content "title" }}
+  <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6 md:px-0">
+    <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ printf "%v" . | emojify | $page.RenderString }}</div>
+    {{ with index $content "text" }}<p>{{ printf "%v" . | emojify | $page.RenderString }}</p>{{ end }}
+  </div>
+  {{ end }}
+  <div class="awards-wrap">
+    <ul class="awards-list">
+      {{ range . }}
+      <li class="award">
+        <span class="award__year">{{ .year }}</span>
+        <span class="award__body">
+          <span class="award__title">{{ .title | $page.RenderString }}</span>
+          {{ with .note }}<span class="award__note">{{ . | $page.RenderString }}</span>{{ end }}
+        </span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ else }}
+  {{ warnf "awards block: data/awards.yaml not found or empty; block skipped." }}
+{{ end }}

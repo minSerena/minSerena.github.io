@@ -1,0 +1,17 @@
+{{/* Job-market / availability callout shown above "About Me" on the homepage.
+     Configure in content/_index.md under the biography block:
+
+       content:
+         announcement:
+           enable: true
+           text: "**On the job market.** ..."
+
+     Set `enable: false` (or delete the key) to hide it. `text` is Markdown. */}}
+{{ $page := .page }}
+{{ $a := index .content "announcement" }}
+{{ if and (reflect.IsMap $a) (index $a "enable") (index $a "text") }}
+<aside class="announcement" aria-label="Availability">
+  <span class="announcement__dot" aria-hidden="true"></span>
+  <div class="announcement__text">{{ printf "%v" (index $a "text") | emojify | $page.RenderString }}</div>
+</aside>
+{{ end }}

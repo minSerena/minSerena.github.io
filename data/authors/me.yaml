@@ -1,0 +1,70 @@
+schema: hugoblox/author/v1
+slug: me
+is_owner: true
+name:
+  display: Min Li
+  given: Min
+  family: Li
+role: Marine Science · Plant Ecology
+bio: 'My research focuses on **plant physiology and coastal wetland ecology**, with a particular interest
+  in *Suaeda salsa*, betacyanin synthesis, and plant responses to environmental stress.
+
+
+  My graduate research at Shanghai Ocean University, advised by Prof. Peimin He, explored the mechanism
+  of color change in *Suaeda salsa*. My undergraduate training in ecology at Binzhou University was supervised
+  by Prof. Jingkuan Sun.
+
+
+  I have contributed to research on coastal wetland restoration, mudflat plant stress tolerance, and water
+  environment improvement in river–sea transition areas. My work includes first-author publications on
+  betacyanin synthesis and its regulation.'
+affiliations: []
+links:
+- icon: hero/at-symbol
+  url: mailto:lmin177@163.com
+  label: Email
+- icon: brands/github
+  url: https://github.com/minSerena
+  label: GitHub
+- icon: brands/linkedin
+  url: https://www.linkedin.com/in/min-li-820a8a344/
+  label: LinkedIn
+- icon: academicons/google-scholar
+  url: https://scholar.google.com/citations?user=COScV94AAAAJ&hl=en
+  label: Google Scholar
+interests:
+- Plant Physiology
+- Coastal Wetland Ecology
+- Betacyanin Biosynthesis
+- Environmental Stress Responses
+- Ecological Restoration
+education:
+- degree: M.Sc. studies in Marine Science
+  institution: Shanghai Ocean University
+  start: '2021-01-01'
+  end: ''
+  date_text: 2021–2024 (expected in supplied CV)
+  summary: 'Advisor: Prof. Peimin He. Thesis: The Mechanism of Color Change of Suaeda salsa Betacyanins.
+    GPA: 3.71/4.00. Completion status awaiting an updated CV.'
+- degree: B.Sc. in Ecology
+  institution: Binzhou University
+  start: '2017-01-01'
+  end: '2021-01-01'
+  date_text: 2017–2021
+  summary: 'Advisor: Prof. Jingkuan Sun. GPA: 3.73/4.00.'
+experience:
+- role: Research Assistant — Water Environment Restoration
+  org: Research supervised by Prof. Peimin He
+  start: '2023-01-01'
+  end: ''
+  date_text: From 2023 (as recorded in CV)
+  summary: Ecological restoration technology for water environment improvement in river–sea transition
+    areas. Current end date unconfirmed.
+- role: Research Assistant — Coastal Wetland Restoration
+  org: Research supervised by Prof. Peimin He
+  start: '2022-01-01'
+  end: '2023-01-01'
+  date_text: 2022–2023
+  summary: Key technologies for restoring Suaeda salsa ecosystems in Shanghai coastal wetlands.
+ids:
+  google_scholar: COScV94AAAAJ

@@ -1,0 +1,16 @@
+main:
+- name: Bio
+  url: /
+  weight: 10
+- name: Publications
+  url: /#papers
+  weight: 20
+- name: Patents
+  url: /#patents
+  weight: 30
+- name: Awards
+  url: /#awards
+  weight: 40
+- name: Experience
+  url: experience/
+  weight: 50

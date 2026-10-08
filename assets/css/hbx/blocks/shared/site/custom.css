@@ -1,0 +1,661 @@
+/* Site-wide custom styles. Loaded automatically by the theme: layouts/_partials/css.html
+   concatenates .css files in SUBFOLDERS of assets/css/hbx/blocks/shared/ after its own CSS and runs
+   the result through Tailwind. (assets/scss/custom.scss is NOT loaded by this theme version.)
+   Careful: a glob written with star-slash in a comment here would close the comment early. */
+
+/* ==========================================================================
+   Custom styles — Min Li (adapted from Xiangyu Zhou’s layout)
+   Layered on top of HugoBlox Kit (Tailwind v4). Kept deliberately small:
+   the theme already handles cards, hover lift, dark mode and typography.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Page background guard
+   The theme sets the page background with a Tailwind utility, which lives in a
+   CSS layer. Un-layered CSS (e.g. the "Flash Player - flash emulator" Chrome
+   extension injects `body { background: #f8f8f8 }` into every site) beats any
+   layered rule, which left dark mode with a light page. This rule is un-layered
+   and more specific than `body`, so the theme's own colour always wins. It reads
+   the theme's variable, so it follows light/dark mode automatically.
+   -------------------------------------------------------------------------- */
+html body {
+  background-color: var(--hb-color-background);
+}
+
+/* --------------------------------------------------------------------------
+   0b. List-page headings (/publications/, /blog/, /events/ ...)
+   The theme sets these to 60px (lg:text-6xl), much larger than typical academic
+   sites (~36-40px) and than the homepage section titles (36px). 40px on desktop,
+   scaling down to 30px on phones.
+   -------------------------------------------------------------------------- */
+h1.lg\:text-6xl {
+  font-size: clamp(1.875rem, 1.4rem + 1.5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   1. Links
+   Previously hardcoded to #2563eb (Tailwind blue-600), which clashed with the
+   theme's indigo `primary` palette. Use the theme token so links always match
+   whatever `hugoblox.theme.colors.primary` is set to, in light and dark mode.
+   -------------------------------------------------------------------------- */
+section#about a,
+#section-resume-biography-3 .prose a,
+.wg-resume-biography-3 a {
+  color: var(--color-primary-600);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+  transition: color 0.15s ease-out;
+}
+
+section#about a:hover,
+#section-resume-biography-3 .prose a:hover,
+.wg-resume-biography-3 a:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+/* The theme switches dark mode with a `.dark` class on <html> (driven by the
+   navbar toggle), not with the OS media query, so key off the class. */
+.dark section#about a,
+.dark #section-resume-biography-3 .prose a,
+.dark .wg-resume-biography-3 a {
+  color: var(--color-primary-400);
+}
+.dark section#about a:hover,
+.dark #section-resume-biography-3 .prose a:hover,
+.dark .wg-resume-biography-3 a:hover {
+  color: var(--color-primary-300);
+}
+
+/* --------------------------------------------------------------------------
+   1b. Google Scholar metrics
+   Rendered under the social icons in the homepage profile column by
+   layouts/_partials/scholar-stats.html; numbers live in data/scholar.yaml.
+   Rings and numbers reuse the "Download CV" button's gradient
+   (primary-600 -> secondary-600) so the two read as one design.
+   -------------------------------------------------------------------------- */
+.scholar-stats {
+  --stat-from: var(--color-primary-600);
+  --stat-to: var(--color-secondary-600);
+  --stat-fill: var(--color-white, #fff);
+  --stat-fill-hover: var(--color-primary-50);
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.dark .scholar-stats {
+  --stat-from: var(--color-primary-400);
+  --stat-to: var(--color-secondary-400);
+  --stat-fill: var(--color-zinc-900, #18181b);
+  --stat-fill-hover: var(--color-zinc-800, #27272a);
+}
+
+/* One link wraps the whole group. */
+.scholar-stats__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Keep the keyboard focus ring rounded (overrides the global 2px radius). */
+.scholar-stats__link:focus-visible {
+  border-radius: 1rem;
+  outline-offset: 2px;
+}
+
+.scholar-stats__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Gradient ring: the fill is painted on the padding-box and the gradient on the
+   border-box, so the transparent border shows the gradient. */
+.scholar-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--stat-fill), var(--stat-fill)) padding-box,
+    linear-gradient(135deg, var(--stat-from), var(--stat-to)) border-box;
+  box-shadow: 0 4px 14px -8px var(--stat-from);
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease-out;
+}
+
+/* Stagger the lift so the three circles ripple left to right. */
+.scholar-stat:nth-child(2) { transition-delay: 40ms; }
+.scholar-stat:nth-child(3) { transition-delay: 80ms; }
+
+.scholar-stats__link:hover .scholar-stat,
+.scholar-stats__link:focus-visible .scholar-stat {
+  transform: translateY(-4px);
+  background:
+    linear-gradient(var(--stat-fill-hover), var(--stat-fill-hover)) padding-box,
+    linear-gradient(135deg, var(--stat-from), var(--stat-to)) border-box;
+  box-shadow: 0 12px 28px -10px var(--stat-from);
+}
+
+.scholar-stat__value {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--stat-from);
+  background: linear-gradient(135deg, var(--stat-from), var(--stat-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scholar-stat__label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray-500, #6b7280);
+}
+
+.scholar-stats__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-gray-500, #6b7280);
+  transition: color 0.2s ease-out;
+}
+
+.scholar-stats__arrow {
+  width: 0.9rem;
+  height: 0.9rem;
+  transition: transform 0.2s ease-out;
+}
+
+.scholar-stats__link:hover .scholar-stats__source,
+.scholar-stats__link:focus-visible .scholar-stats__source {
+  color: var(--stat-from);
+}
+
+.scholar-stats__link:hover .scholar-stats__arrow,
+.scholar-stats__link:focus-visible .scholar-stats__arrow {
+  transform: translate(2px, -2px);
+}
+
+.dark .scholar-stat__label,
+.dark .scholar-stats__source { color: var(--color-gray-400, #9ca3af); }
+
+/* --------------------------------------------------------------------------
+   1c. Job-market callout (layouts/_partials/announcement.html)
+   Configured under `announcement` in content/_index.md. The accent bar reuses
+   the "Download CV" gradient; the dot pulses to signal "currently available".
+   -------------------------------------------------------------------------- */
+.announcement {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.25rem 1rem 1.5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  background: var(--color-primary-50);
+  color: var(--color-gray-800, #1f2937);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* Gradient accent bar on the left edge. */
+.announcement::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--color-primary-600), var(--color-secondary-600));
+}
+
+.announcement strong {
+  color: var(--color-gray-900, #111827);
+  font-weight: 700;
+}
+
+.announcement a {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.announcement a:hover {
+  color: var(--color-primary-700);
+}
+
+.announcement__dot {
+  position: relative;
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.6rem;
+  border-radius: 9999px;
+  background: var(--color-primary-600);
+}
+
+.announcement__dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: announcement-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes announcement-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  80%, 100% { transform: scale(2.6); opacity: 0; }
+}
+
+.dark .announcement {
+  background: color-mix(in srgb, var(--color-primary-500) 12%, transparent);
+  color: var(--color-gray-200, #e5e7eb);
+}
+.dark .announcement::before {
+  background: linear-gradient(180deg, var(--color-primary-400), var(--color-secondary-400));
+}
+.dark .announcement strong { color: var(--color-white, #fff); }
+.dark .announcement a { color: var(--color-primary-300); }
+.dark .announcement a:hover { color: var(--color-primary-200); }
+.dark .announcement__dot { background: var(--color-primary-400); }
+
+/* --------------------------------------------------------------------------
+   1d. Featured Publications figures
+   The block uses `fill_image: false` (content/_index.md) so wide paper figures
+   are scaled to fit instead of cropped. Put them on a white panel with a little
+   breathing room, like a figure on a page, instead of the theme's grey gradient.
+   White in dark mode too: paper figures are drawn on white.
+   -------------------------------------------------------------------------- */
+#papers .aspect-\[16\/9\] {
+  background: #fff;
+}
+
+#papers .aspect-\[16\/9\] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   1e. Page width and spacing
+   Profile section 1280 -> 1440px. Every collection section (Featured / Recent
+   Publications, Talks, News) gets the same 1200px width, including the citation
+   list and the theme's narrower card lists. Section top/bottom padding is set by
+   `design.spacing` in content/_index.md; the profile block's own extra inner
+   padding (up to 8rem) is trimmed here so About Me sits closer to the navbar.
+   -------------------------------------------------------------------------- */
+/* Homepage scope: every homepage-only rule below is prefixed with
+   `.page-body:has(> #section-resume-biography-3) >`. The profile section only
+   exists on the homepage, so these rules never touch /experience/ or other
+   landing pages (an unscoped title rule once enlarged all Experience-page text).
+
+   Section spacing. The theme pads every section 6rem top and bottom (and this
+   version ignores `design.spacing` in content/_index.md), so set it here. */
+.page-body:has(> #section-resume-biography-3) > .hbb-section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.page-body:has(> #section-resume-biography-3) > #section-resume-biography-3.hbb-section { padding-bottom: 1.5rem; }
+
+#section-resume-biography-3 .max-w-7xl { max-width: 90rem; }
+
+/* Profile right column: soften the width difference between the About Me text
+   and the other blocks (job-market callout, Experience & Education cards,
+   Interests). The theme caps only the bio text at reading width (`prose`, ~65ch),
+   which made it visibly shorter. Deliberately not equal: on a wide screen the
+   bio widens a little (~680 -> 816px) and the other blocks narrow a little
+   (~950 -> 912px). On narrower screens everything simply fills the column. */
+#section-resume-biography-3 .md\:col-span-8 > * { max-width: 57rem; }
+#section-resume-biography-3 .md\:col-span-8 .prose { max-width: 51rem; }
+/* The theme's biography CSS also caps the text block itself at 680px. */
+#section-resume-biography-3 .md\:col-span-8 .bio-text { max-width: none; }
+#section-resume-biography-3 .resume-biography {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) .max-w-screen-lg { max-width: 75rem; }
+
+/* Recent Publications is a text list, so it is kept a little narrower (1024px)
+   than the card sections (1200px) for comfortable line lengths. */
+#recent-publications .max-w-3xl { max-width: 58rem; }
+
+/* When a collection has a single item (e.g. one talk) the theme narrows the
+   container to 500px. Keep it at the full section width, so a lone card takes
+   one column of the two-column grid like everywhere else. */
+.page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) .container.max-w-\[500px\] { max-width: 75rem; }
+
+/* Alternating section backgrounds so neighbouring sections read as separate
+   bands. Based on position (every 2nd, 4th, 6th... section after the profile is
+   tinted), so it stays correct if sections are reordered in content/_index.md. */
+.page-body:has(> #section-resume-biography-3) > section.hbb-section:nth-of-type(even) {
+  background-color: color-mix(in srgb, var(--color-primary-500) 6%, var(--hb-color-background));
+}
+
+/* --------------------------------------------------------------------------
+   1e-2. Section titles (Featured / Recent Publications, Talks, News)
+   Left-aligned, larger, with a short accent bar above (the CV-button gradient),
+   and aligned exactly with the left edge of the section's content:
+     card sections: content box = min(100% - 3rem, 75rem), text inset 2rem
+                    (1.25rem from 1280px up, matching the theme's xl:px-5)
+     Recent Publications: content box = min(100% - 3rem, 58rem), no inset.
+   The gap between title and content is cut from ~3.5rem (5rem for Recent
+   Publications) to about 1rem.
+   -------------------------------------------------------------------------- */
+.page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div {
+  align-items: flex-start;
+  width: calc(100% - 3rem);
+  max-width: 75rem;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  gap: 0;
+}
+@media (min-width: 1280px) {
+  .page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div { padding-inline: 1.25rem; }
+}
+/* `section.hbb-section#…` so this outranks the rule above, whose `:not(#…)`
+   counts as an ID selector. */
+.page-body:has(> #section-resume-biography-3) > section.hbb-section#recent-publications > .home-section-bg + div,
+.page-body:has(> #section-resume-biography-3) > section.hbb-section#awards > .home-section-bg + div {
+  max-width: 58rem;
+  padding-inline: 0;
+}
+
+.page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > div:first-child {
+  margin-bottom: 0;
+  font-size: clamp(1.75rem, 1.25rem + 1.6vw, 2.25rem); /* 28px on phones -> 36px on desktop */
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+.page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > div:first-child::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 4px;
+  margin-bottom: 0.75rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--color-primary-600), var(--color-secondary-600));
+}
+.dark .page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > div:first-child::before {
+  background: linear-gradient(90deg, var(--color-primary-400), var(--color-secondary-400));
+}
+
+/* Optional one-line description under a section title (`text:` in content/_index.md). */
+.page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-gray-600, #4b5563);
+}
+.page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > p a {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.dark .page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > p { color: var(--color-gray-400, #9ca3af); }
+.dark .page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > p a { color: var(--color-primary-400); }
+
+/* Shorter Featured Publications cards: paper figures are wide, so a 16:9 image
+   box was mostly empty space. Use a wider box and slightly tighter padding. */
+#papers [class*="aspect-[16/9]"] { aspect-ratio: 2.3 / 1; }
+#papers [role=article] .p-8 { padding: 1.5rem; }
+
+/* Title-to-content gap. */
+.page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) .container.py-5 { padding-top: 1.25rem; }
+#recent-publications .container.mt-16 { margin-top: 1rem; }
+
+/* Recent Publications: thin rule between entries, like a bibliography. The theme
+   sets an inline 1rem bottom margin on each entry, hence !important. */
+#recent-publications .pub-list-item {
+  margin: 0 !important;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-gray-200, #e5e7eb);
+}
+#recent-publications .pub-list-item:last-child {
+  border-bottom: 1px solid var(--color-gray-200, #e5e7eb);
+}
+#recent-publications .space-y-3 > * { margin-block: 0 !important; }
+.dark #recent-publications .pub-list-item { border-color: var(--color-gray-700, #374151); }
+
+/* --------------------------------------------------------------------------
+   1e-3. Awards & Recognition (layouts/_partials/hbx/blocks/honors/block.html)
+   Same column as Recent Publications (58rem, no inset) so titles and rules line
+   up; year in a fixed left column, title + optional note on the right.
+   -------------------------------------------------------------------------- */
+.awards-wrap {
+  width: calc(100% - 3rem);
+  max-width: 58rem;
+  margin: 1.25rem auto 0;
+}
+.awards-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.award {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.15rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-gray-200, #e5e7eb);
+}
+.award:last-child { border-bottom: 1px solid var(--color-gray-200, #e5e7eb); }
+@media (min-width: 640px) {
+  .award { grid-template-columns: 8rem minmax(0, 1fr); gap: 1.5rem; align-items: baseline; }
+}
+.award__year {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary-600);
+}
+.award__body { display: flex; flex-direction: column; gap: 0.2rem; }
+.award__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-gray-900, #111827);
+}
+.award__note {
+  font-size: 0.925rem;
+  line-height: 1.5;
+  color: var(--color-gray-600, #4b5563);
+}
+.dark .award { border-color: var(--color-gray-700, #374151); }
+.dark .award__year { color: var(--color-primary-400); }
+.dark .award__title { color: var(--color-white, #fff); }
+.dark .award__note { color: var(--color-gray-400, #9ca3af); }
+
+/* --------------------------------------------------------------------------
+   1f. "Experience & Education" cards (layouts/_partials/background-cards.html)
+   Two most recent roles + two highest degrees: 4 across on wide screens,
+   2 on tablets, 1 on phones.
+   -------------------------------------------------------------------------- */
+.bg-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 640px)  { .bg-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .bg-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.bg-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.9), color-mix(in srgb, var(--color-primary-50) 60%, transparent));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
+}
+.bg-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary-200);
+  box-shadow: 0 12px 24px -12px var(--color-primary-500);
+}
+
+.bg-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.4rem;
+  border-radius: 9999px;
+  background: var(--color-white, #fff);
+  box-shadow: 0 0 0 1px var(--color-gray-200, #e5e7eb), 0 2px 4px rgb(0 0 0 / 0.06);
+}
+.bg-card__svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--color-primary-600);
+}
+
+.bg-card__kind {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary-600);
+}
+.bg-card--education .bg-card__kind,
+.bg-card--education .bg-card__svg { color: var(--color-secondary-600); }
+
+.bg-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-gray-900, #111827);
+}
+.bg-card__org {
+  margin: 0;
+  font-size: 0.925rem;
+  line-height: 1.4;
+  color: var(--color-gray-700, #374151);
+}
+.bg-card__dates {
+  margin: auto 0 0;
+  padding-top: 0.35rem;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-gray-500, #6b7280);
+}
+
+.bg-cards__more {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-primary-600);
+  text-decoration: none;
+}
+.bg-cards__more:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+.dark .bg-card {
+  background: linear-gradient(135deg, rgb(31 41 55 / 0.9), color-mix(in srgb, var(--color-primary-900) 25%, transparent));
+}
+.dark .bg-card:hover { border-color: var(--color-primary-800); }
+.dark .bg-card__icon { background: var(--color-gray-800, #1f2937); box-shadow: 0 0 0 1px var(--color-gray-700, #374151); }
+.dark .bg-card__svg,
+.dark .bg-card__kind { color: var(--color-primary-400); }
+.dark .bg-card--education .bg-card__kind,
+.dark .bg-card--education .bg-card__svg { color: var(--color-secondary-400); }
+.dark .bg-card__title { color: var(--color-white, #fff); }
+.dark .bg-card__org { color: var(--color-gray-300, #d1d5db); }
+.dark .bg-card__dates { color: var(--color-gray-400, #9ca3af); }
+.dark .bg-cards__more { color: var(--color-primary-400); }
+
+/* --------------------------------------------------------------------------
+   2. Section entrance animation
+   Sections fade and rise once as they scroll into view. `.reveal` is added by
+   layouts/_partials/hooks/head-end/reveal.html only when IntersectionObserver
+   is available, so with JS disabled every section stays fully visible.
+   -------------------------------------------------------------------------- */
+.hbb-section.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.hbb-section.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Numerals
+   Dates, citation years and metrics line up in columns. Small detail, but it
+   is what makes a publication list read as a bibliography rather than a blog.
+   -------------------------------------------------------------------------- */
+time,
+.citation,
+#section-collection li {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   4. Accessibility
+   The theme relies on hover states in several places; make keyboard focus
+   just as obvious.
+   -------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Respect reduced-motion
+   Disables the reveal animation and the theme's own card transforms for users
+   who have asked their OS for less motion.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hbb-section.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Initials until a personal portrait is supplied. */
+.avatar-initials { width: 200px; height: 200px; display: grid; place-items: center; border-radius: 50%; border: 4px solid white; background: linear-gradient(135deg, #d9e8de, #dbe9f3); color: #245a50; font-size: 4rem; font-weight: 700; box-shadow: 0 12px 30px rgb(0 0 0 / 0.12); }

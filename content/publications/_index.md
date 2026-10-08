@@ -1,0 +1,5 @@
+---
+title: Publications
+view: citation
+---
+

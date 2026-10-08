@@ -1,0 +1,55 @@
+{{/* Google Scholar metrics (citations, h-index, i10-index), rendered under the
+     social icons in the homepage profile column. Numbers come from data/scholar.yaml.
+     Included from layouts/_partials/hbx/blocks/resume-biography-3/block.html.
+
+     The whole group is a single link to the Scholar profile. The real numbers are in
+     the HTML; the count-up below only animates them, so no-JS visitors and crawlers
+     still see the correct values. */}}
+{{ with hugo.Data.scholar }}
+{{ $as_of := "" }}{{ with .as_of }}{{ $as_of = time.Format "January 2006" (time.AsTime .) }}{{ end }}
+{{ $summary := slice }}{{ range .metrics }}{{ $summary = $summary | append (printf "%s %s" (lang.FormatNumber 0 .value) .label) }}{{ end }}
+<div class="scholar-stats">
+  <a class="scholar-stats__link" href="{{ .profile_url }}" target="_blank" rel="noopener"
+     aria-label="Google Scholar: {{ delimit $summary ", " }}{{ with $as_of }}, as of {{ . }}{{ end }}. Opens in a new tab.">
+    <ul class="scholar-stats__list" aria-hidden="true">
+      {{ range .metrics }}
+      <li class="scholar-stat">
+        <span class="scholar-stat__value" data-count="{{ .value }}">{{ lang.FormatNumber 0 .value }}</span>
+        <span class="scholar-stat__label">{{ .label }}</span>
+      </li>
+      {{ end }}
+    </ul>
+    <span class="scholar-stats__source" aria-hidden="true">
+      Google Scholar{{ with $as_of }} · {{ . }}{{ end }}
+      <svg class="scholar-stats__arrow" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06Z" clip-rule="evenodd"/></svg>
+    </span>
+  </a>
+</div>
+<script>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('.scholar-stat__value[data-count]');
+    var fmt = new Intl.NumberFormat();
+    var duration = 1100;
+    var start = null;
+    var done = false;
+    function render(p) {
+      var eased = 1 - Math.pow(1 - p, 3);
+      els.forEach(function (el) {
+        el.textContent = fmt.format(Math.round(+el.dataset.count * eased));
+      });
+    }
+    function finish() { if (!done) { done = true; render(1); } }
+    function frame(t) {
+      if (done) return;
+      if (start === null) start = t;
+      var p = Math.min((t - start) / duration, 1);
+      if (p < 1) { render(p); requestAnimationFrame(frame); } else { finish(); }
+    }
+    els.forEach(function (el) { el.textContent = '0'; });
+    requestAnimationFrame(frame);
+    // Animation frames pause in background tabs; never leave a partial number on screen.
+    setTimeout(finish, duration + 300);
+  })();
+</script>
+{{ end }}

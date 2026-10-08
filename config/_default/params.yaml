@@ -1,0 +1,43 @@
+hugoblox:
+  schema: '2.0'
+  identity:
+    name: Min Li
+    type: person
+    tagline: Marine Science · Plant Ecology
+    description: 'Academic homepage of Min Li: plant physiology, betacyanin biosynthesis, coastal wetland
+      ecology, and ecological restoration.'
+  theme:
+    mode: system
+    pack: default
+    colors:
+      primary: ''
+      secondary: ''
+      neutral: ''
+  typography:
+    font: serif
+    size: md
+  layout:
+    radius: md
+    spacing: comfortable
+    avatar_shape: circle
+  header:
+    enable: true
+    style: navbar
+    sticky: true
+    align: center
+    search: true
+    theme_toggle: true
+  footer:
+    style: minimal
+    language_switcher: true
+  copyright:
+    notice: © {year} {name}
+  content:
+    math:
+      enable: false
+    toc:
+      enable: true
+    reading_time:
+      enable: true
+  search:
+    enable: true

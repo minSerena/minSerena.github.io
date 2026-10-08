@@ -1,0 +1,44 @@
+{{/* "Experience & Education" row on the homepage: the two most recent roles and the
+     two highest degrees from data/authors/me.yaml, as one row of four cards.
+     Replaces the theme's Education grid; included from
+     layouts/_partials/hbx/blocks/resume-biography-3/block.html (LOCAL CHANGE).
+     The full history stays on the Experience page.
+
+     Styled with custom classes in assets/css/hbx/blocks/shared/site/custom.css rather
+     than new Tailwind utilities, so it doesn't depend on Tailwind's class scan. */}}
+{{ $profile := .profile }}
+{{ $items := slice }}
+{{ range first 2 ($profile.experience | default slice) }}
+  {{ $items = $items | append (dict "kind" "experience" "icon" "briefcase" "title" .role "org" .org "start" .start "end" .end "date_text" .date_text) }}
+{{ end }}
+{{ range first 2 ($profile.education | default slice) }}
+  {{ $items = $items | append (dict "kind" "education" "icon" "academic-cap" "title" .degree "org" .institution "start" .start "end" .end "date_text" .date_text) }}
+{{ end }}
+
+{{ with $items }}
+<div class="mb-16">
+  <div class="flex items-center gap-4 mb-8">
+    <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center">
+      {{ partial "functions/get_icon" (dict "name" "academic-cap" "attributes" "class='w-6 h-6 text-primary-600 dark:text-primary-400'") }}
+    </div>
+    <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Experience &amp; Education</h3>
+  </div>
+  <ul class="bg-cards">
+    {{ range . }}
+    <li class="bg-card bg-card--{{ .kind }}">
+      <span class="bg-card__icon" aria-hidden="true">
+        {{ partial "functions/get_icon" (dict "name" .icon "attributes" "class='bg-card__svg'") }}
+      </span>
+      <span class="bg-card__kind">{{ cond (eq .kind "experience") "Experience" "Education" }}</span>
+      <p class="bg-card__title">{{ .title }}</p>
+      <p class="bg-card__org">{{ .org }}</p>
+      <p class="bg-card__dates">
+        {{- if .date_text }}{{ .date_text }}{{ else }}{{ with .start }}{{ time.Format "Jan 2006" (time.AsTime .) }}{{ end }} –
+        {{ with .end }}{{ time.Format "Jan 2006" (time.AsTime .) }}{{ else }}Present{{ end }}{{ end -}}
+      </p>
+    </li>
+    {{ end }}
+  </ul>
+  <a class="bg-cards__more" href="{{ "experience/" | relLangURL }}">Full experience &amp; education <span aria-hidden="true">→</span></a>
+</div>
+{{ end }}
