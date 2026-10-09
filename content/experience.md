@@ -20,7 +20,7 @@ sections:
     text: "### Doctoral Researcher · Wayne State University\n**August 2024–Present** · Detroit, Michigan,\
       \ USA.  \nAdvisor: **Prof. Chuanzhu Fan**.\n\nInvestigating the molecular mechanisms of sex determination\
       \ in spinach using comparative genomics, transcriptomics, and functional gene characterization.\n\
-      \n### Master’s Student Researcher · Shanghai Ocean University\n**2021–2024** · Shanghai, China.\
+      \n### Graduate Researcher · Shanghai Ocean University\n**2021–2024** · Shanghai, China.\
       \  \nAdvisor: **Prof. Peimin He**.\n\n**Ecological Restoration Technologies for Water Quality Improvement\
       \ in River–Sea Transition Zones · 2023–2024**  \nContributed to research proposals, project documentation,\
       \ and final reports.\n\n**Restoration of *Suaeda salsa* Ecosystems in Shanghai Coastal Wetlands\

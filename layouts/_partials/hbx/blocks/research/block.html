@@ -1,0 +1,42 @@
+{{/* Custom block: Research areas. One card per area, current work first.
+     Usage in content/_index.md:
+       - block: research
+         id: research
+         content:
+           title: Research
+           items:
+             - status: Current        # small label above the title
+               title: ...
+               text: ...            # Markdown, about two sentences
+               keywords: [ ... ]    # optional
+     Title markup reuses the theme's collection-block wrapper so it gets the same
+     accent bar and alignment as the other sections (custom.css). */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ with index $content "title" }}
+<div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6 md:px-0">
+  <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ printf "%v" . | $page.RenderString }}</div>
+  {{ with index $content "text" }}<p>{{ printf "%v" . | $page.RenderString }}</p>{{ end }}
+</div>
+{{ end }}
+{{ with index $content "items" }}
+<div class="research-wrap">
+  <ul class="research-grid">
+    {{ range $i, $item := . }}
+    <li class="research-card{{ if eq $i 0 }} research-card--current{{ end }}">
+      {{ with $item.status }}<span class="research-card__status">{{ . }}</span>{{ end }}
+      <h3 class="research-card__title">{{ $item.title | $page.RenderString }}</h3>
+      <div class="research-card__text">{{ $item.text | $page.RenderString (dict "display" "block") }}</div>
+      {{ with $item.keywords }}
+      <ul class="research-card__tags">
+        {{ range . }}<li>{{ . | $page.RenderString }}</li>{{ end }}
+      </ul>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

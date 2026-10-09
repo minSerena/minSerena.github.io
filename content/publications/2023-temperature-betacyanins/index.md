@@ -22,7 +22,9 @@ date: '2023-06-26'
 publication: Frontiers in Plant Science, 14, 1203089
 publication_types:
 - article-journal
-featured: false
+featured: true
+# One-sentence contribution shown under Selected Publications.
+highlight: 'Identifies 15 °C as the optimal temperature for betacyanin synthesis in *S. salsa* leaves and profiles the temperature-responsive expression of betacyanin biosynthesis genes.'
 hugoblox:
   ids:
     doi: 10.3389/fpls.2023.1203089

@@ -233,6 +233,10 @@
           {{ with $role_text }}
             <p class="text-2xl font-semibold text-primary-600 dark:text-primary-400">{{ . | markdownify | emojify }}</p>
           {{ end }}
+          {{/* LOCAL CHANGE: research-focus line under the role (`focus` in data/authors/me.yaml). */}}
+          {{ with index (index hugo.Data.authors $author | default dict) "focus" }}
+            <p class="profile-focus">{{ . | markdownify }}</p>
+          {{ end }}
           
           {{ $affiliations_raw := $profile.affiliations }}
           {{ $affiliations := slice }}

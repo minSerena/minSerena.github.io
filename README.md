@@ -23,7 +23,10 @@ Open http://localhost:1313. To verify the production build, run `pnpm build`.
 | Homepage sections and CV button | `content/_index.md` |
 | Research and education details | `content/experience.md` |
 | Publications | `content/publications/<slug>/index.md` |
-| Awards | `data/awards.yaml` |
+| News (homepage, newest first) | `data/news.yaml` |
+| Research areas | `research` block in `content/_index.md` |
+| Selected Publications | `featured: true` plus a one-sentence `highlight` in a paper's front matter |
+| Awards (`featured: true` shown; others under "Earlier honors") | `data/awards.yaml` |
 | Downloadable CV | `static/uploads/Min-Li-CV.pdf` |
 | Portrait (optional; initials shown until supplied) | `assets/media/authors/me.png` |
 | Site identity | `config/_default/params.yaml` |
@@ -36,7 +39,7 @@ The website now follows `Min Li CV_2026.pdf` supplied on 8 October 2026. It incl
 
 `Min Li CV.pdf` and `static/uploads/Min-Li-CV.pdf` are byte-identical copies of the latest supplied CV. Existing GitHub, LinkedIn, and Google Scholar links are retained from the user's earlier instructions. A portrait and verified Scholar metrics can be added later.
 
-Year-only publication dates use January 1 for Hugo sorting; they do not assert an exact publication date. New article titles, authors, and venue details follow the CV. The two previously verified DOI links are retained. Teaching semesters follow the CV, with the Genetics Spring/Summer semester corrected to 2025 per the user's confirmation.
+Publication metadata and DOIs were checked against Google Scholar and Crossref on 9 October 2026 (this corrected the Phragmites journal to *Biology*, the fifth Planta author to Jingwen Wang, and the Plant Physiology Journal citation to 2024, 60(1), 63–74). Dates with only a year or month use the first day for Hugo sorting; they do not assert an exact publication date. Teaching semesters follow the CV, with the Genetics Spring/Summer semester corrected to 2025 per the user's confirmation.
 
 ## GitHub Pages
 

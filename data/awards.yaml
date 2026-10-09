@@ -1,17 +1,24 @@
+# Awards & Recognition (layouts/_partials/hbx/blocks/honors/block.html), newest first.
+# `featured: true` entries are listed on the homepage; the rest fold under "Earlier honors".
 - year: '2026'
   title: Graduate Teaching Assistant Award
+  featured: true
   note: Wayne State University · August 2026
 - year: '2024'
   title: China College Students’ Self-Strengthening Star Award
+  featured: true
   note: China · December 2024
 - year: '2024'
   title: Yangtze River Delta Innovation Practice Star Award
+  featured: true
   note: Shanghai City · August 2024
 - year: '2024'
   title: Outstanding Graduate
   note: Shanghai City · April 2024
+  featured: true
 - year: '2023'
   title: National Scholarship
+  featured: true
   note: China
 - year: 2022–2023
   title: First-tier Academic Scholarship

@@ -651,11 +651,349 @@ button:focus-visible {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
 
-/* Initials until a personal portrait is supplied. */
-.avatar-initials { width: 200px; height: 200px; display: grid; place-items: center; border-radius: 50%; border: 4px solid white; background: linear-gradient(135deg, #d9e8de, #dbe9f3); color: #245a50; font-size: 4rem; font-weight: 700; box-shadow: 0 12px 30px rgb(0 0 0 / 0.12); }
+/* Initials until a personal portrait is supplied. Tinted with the theme palette. */
+.avatar-initials {
+  width: 200px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 4px solid white;
+  background: linear-gradient(135deg, var(--color-primary-100), var(--color-secondary-100));
+  color: var(--color-primary-700);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  box-shadow: 0 12px 30px -8px color-mix(in srgb, var(--color-primary-500) 35%, transparent);
+}
+.dark .avatar-initials {
+  border-color: var(--color-gray-800, #1f2937);
+  background: linear-gradient(135deg, var(--color-primary-900), var(--color-secondary-900));
+  color: var(--color-primary-200);
+}
+
+/* --------------------------------------------------------------------------
+   6. Profile focus line (second line under the role; `focus` in me.yaml)
+   -------------------------------------------------------------------------- */
+.profile-focus {
+  margin-top: -0.25rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  color: var(--color-gray-600, #4b5563);
+}
+.dark .profile-focus { color: var(--color-gray-400, #9ca3af); }
+
+/* --------------------------------------------------------------------------
+   7. Narrow homepage columns: News, Selected Publications and Awards share the
+   58rem bibliography column; Research uses the full 75rem card width.
+   -------------------------------------------------------------------------- */
+.page-body:has(> #section-resume-biography-3) > section.hbb-section#news > .home-section-bg + div,
+.page-body:has(> #section-resume-biography-3) > section.hbb-section#selected > .home-section-bg + div {
+  max-width: 58rem;
+  padding-inline: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. News (layouts/_partials/hbx/blocks/news/block.html)
+   Same date-column layout as Awards.
+   -------------------------------------------------------------------------- */
+.news-list { margin: 0; padding: 0; list-style: none; }
+.news-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.15rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--color-gray-200, #e5e7eb);
+  line-height: 1.6;
+}
+.news-item:last-child { border-bottom: 1px solid var(--color-gray-200, #e5e7eb); }
+@media (min-width: 640px) {
+  .news-item { grid-template-columns: 8rem minmax(0, 1fr); gap: 1.5rem; align-items: baseline; }
+}
+.news-item__date {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary-600);
+}
+.news-item__text { color: var(--color-gray-800, #1f2937); }
+.news-item__text a { color: var(--color-primary-600); text-decoration: underline; text-underline-offset: 0.2em; }
+.dark .news-item { border-color: var(--color-gray-700, #374151); }
+.dark .news-item__date,
+.dark .news-item__text a { color: var(--color-primary-400); }
+.dark .news-item__text { color: var(--color-gray-200, #e5e7eb); }
+
+/* --------------------------------------------------------------------------
+   9. Research cards (layouts/_partials/hbx/blocks/research/block.html)
+   Current work first and slightly emphasised; 3 across on desktop.
+   -------------------------------------------------------------------------- */
+/* Same box as the section title (75rem column, 2rem inset; 1.25rem from 1280px). */
+.research-wrap {
+  width: calc(100% - 3rem);
+  max-width: 75rem;
+  margin: 1.25rem auto 0;
+  padding-inline: 2rem;
+}
+@media (min-width: 1280px) { .research-wrap { padding-inline: 1.25rem; } }
+@media (max-width: 639px) { .research-wrap { width: 100%; padding-inline: 1rem; } }
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 900px) { .research-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.research-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem 1.5rem 1.35rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-gray-200, #e5e7eb);
+  background: var(--hb-color-background);
+  overflow: hidden;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
+}
+/* Thin accent along the top edge, grows on hover. */
+.research-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary-300), var(--color-secondary-300));
+  transform-origin: left;
+  transform: scaleX(0.25);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.research-card--current::before {
+  background: linear-gradient(90deg, var(--color-primary-600), var(--color-secondary-600));
+}
+.research-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary-200);
+  box-shadow: 0 14px 28px -16px var(--color-primary-500);
+}
+.research-card:hover::before { transform: scaleX(1); }
+
+.research-card__status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray-500, #6b7280);
+}
+.research-card--current .research-card__status { color: var(--color-primary-600); }
+.research-card__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-gray-900, #111827);
+}
+.research-card__text {
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--color-gray-700, #374151);
+}
+.research-card__text p { margin: 0; }
+.research-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: auto 0 0;
+  padding: 0.4rem 0 0;
+  list-style: none;
+}
+.research-card__tags li {
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  color: var(--color-primary-700);
+  background: var(--color-primary-50);
+  border: 1px solid var(--color-primary-100);
+}
+.dark .research-card { border-color: var(--color-gray-700, #374151); }
+.dark .research-card:hover { border-color: var(--color-primary-800); }
+.dark .research-card--current .research-card__status { color: var(--color-primary-400); }
+.dark .research-card__title { color: var(--color-white, #fff); }
+.dark .research-card__text { color: var(--color-gray-300, #d1d5db); }
+.dark .research-card__tags li {
+  color: var(--color-primary-200);
+  background: color-mix(in srgb, var(--color-primary-500) 15%, transparent);
+  border-color: color-mix(in srgb, var(--color-primary-500) 30%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   10. Selected Publications (layouts/_partials/hbx/blocks/selected-publications/block.html)
+   -------------------------------------------------------------------------- */
+/* Same 58rem column as Awards and News. */
+.selected-wrap { width: calc(100% - 3rem); max-width: 58rem; margin: 1.25rem auto 0; }
+.selected-list { margin: 0; padding: 0; list-style: none; }
+.selected-pub {
+  position: relative;
+  padding: 1.25rem 0 1.25rem 1.25rem;
+  border-top: 1px solid var(--color-gray-200, #e5e7eb);
+}
+.selected-pub:last-child { border-bottom: 1px solid var(--color-gray-200, #e5e7eb); }
+/* Accent bar slides in on hover. */
+.selected-pub::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  width: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, var(--color-primary-500), var(--color-secondary-500));
+  transform-origin: top;
+  transform: scaleY(0.3);
+  opacity: 0.45;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease-out;
+}
+.selected-pub:hover::before { transform: scaleY(1); opacity: 1; }
+
+.selected-pub__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+}
+.selected-pub__year { font-weight: 600; color: var(--color-gray-500, #6b7280); }
+.selected-pub__venue {
+  padding: 0.1rem 0.55rem;
+  border-radius: 0.3rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-primary-700);
+  background: var(--color-primary-50);
+}
+.selected-pub__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-gray-900, #111827);
+}
+.selected-pub__title a { color: inherit; text-decoration: none; }
+.selected-pub__title a:hover { color: var(--color-primary-700); text-decoration: underline; text-underline-offset: 0.2em; }
+.selected-pub__highlight {
+  margin: 0.45rem 0 0;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--color-gray-700, #374151);
+}
+.selected-pub__authors {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-gray-600, #4b5563);
+}
+.selected-pub__link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary-600);
+  text-decoration: none;
+}
+.selected-pub__link:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.dark .selected-pub { border-color: var(--color-gray-700, #374151); }
+.dark .selected-pub__venue { color: var(--color-primary-200); background: color-mix(in srgb, var(--color-primary-500) 18%, transparent); }
+.dark .selected-pub__title { color: var(--color-white, #fff); }
+.dark .selected-pub__title a:hover { color: var(--color-primary-300); }
+.dark .selected-pub__highlight { color: var(--color-gray-300, #d1d5db); }
+.dark .selected-pub__authors { color: var(--color-gray-400, #9ca3af); }
+.dark .selected-pub__link { color: var(--color-primary-400); }
+
+/* --------------------------------------------------------------------------
+   11. Awards: "Earlier honors" disclosure
+   -------------------------------------------------------------------------- */
+.awards-more { margin-top: 0.75rem; }
+.awards-more > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-primary-600);
+  cursor: pointer;
+  list-style: none;
+}
+.awards-more > summary::-webkit-details-marker { display: none; }
+.awards-more > summary::before {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease-out;
+}
+.awards-more[open] > summary::before { transform: rotate(45deg); }
+.awards-more[open] > .awards-list { margin-top: 0.5rem; }
+.dark .awards-more > summary { color: var(--color-primary-400); }
+
+/* --------------------------------------------------------------------------
+   12. Motion
+   a) Hero: the profile column and the About column fade up once on load, one
+      element after another. Pure CSS with fill-mode `both`, so nothing stays
+      hidden if animations are off (section 5 shortens them to ~0 for
+      reduced-motion users).
+   b) List items inside a section stagger in when the section is revealed
+      (the `.reveal` / `.is-visible` classes come from hooks/head-end/reveal.html).
+   -------------------------------------------------------------------------- */
+@keyframes hb-fade-up {
+  from { opacity: 0; transform: translateY(0.9rem); }
+  to { opacity: 1; transform: none; }
+}
+#section-resume-biography-3 .md\:col-span-4 > *,
+#section-resume-biography-3 .md\:col-span-8 > * {
+  animation: hb-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+#section-resume-biography-3 .md\:col-span-4 > :nth-child(2) { animation-delay: 0.08s; }
+#section-resume-biography-3 .md\:col-span-4 > :nth-child(3) { animation-delay: 0.16s; }
+#section-resume-biography-3 .md\:col-span-4 > :nth-child(n+4) { animation-delay: 0.24s; }
+#section-resume-biography-3 .md\:col-span-8 > :nth-child(1) { animation-delay: 0.12s; }
+#section-resume-biography-3 .md\:col-span-8 > :nth-child(2) { animation-delay: 0.22s; }
+#section-resume-biography-3 .md\:col-span-8 > :nth-child(3) { animation-delay: 0.32s; }
+#section-resume-biography-3 .md\:col-span-8 > :nth-child(n+4) { animation-delay: 0.4s; }
+
+.hbb-section.reveal :is(.news-item, .research-card, .selected-pub, .awards-list > .award) {
+  opacity: 0;
+  translate: 0 0.75rem;
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.25s ease-out,
+    box-shadow 0.25s ease-out,
+    border-color 0.25s ease-out;
+}
+.hbb-section.reveal.is-visible :is(.news-item, .research-card, .selected-pub, .awards-list > .award) {
+  opacity: 1;
+  translate: none;
+}
+.hbb-section.reveal.is-visible :is(.news-item, .research-card, .selected-pub, .award):nth-child(2) { transition-delay: 70ms, 70ms, 0s, 0s, 0s; }
+.hbb-section.reveal.is-visible :is(.news-item, .research-card, .selected-pub, .award):nth-child(3) { transition-delay: 140ms, 140ms, 0s, 0s, 0s; }
+.hbb-section.reveal.is-visible :is(.news-item, .research-card, .selected-pub, .award):nth-child(4) { transition-delay: 210ms, 210ms, 0s, 0s, 0s; }
+.hbb-section.reveal.is-visible :is(.news-item, .research-card, .selected-pub, .award):nth-child(n+5) { transition-delay: 280ms, 280ms, 0s, 0s, 0s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hbb-section.reveal :is(.news-item, .research-card, .selected-pub, .awards-list > .award) {
+    opacity: 1;
+    translate: none;
+  }
+}

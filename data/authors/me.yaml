@@ -6,20 +6,25 @@ name:
   given: Min
   family: Li
 role: Ph.D. Student in Biological Sciences
+# Second line under the role in the homepage profile column (LOCAL CHANGE in
+# layouts/_partials/hbx/blocks/resume-biography-3/block.html).
+focus: Plant Genomics & Evolution
 bio: 'I am a Ph.D. student in the Department of Biological Sciences at Wayne State University, advised
-  by Prof. Chuanzhu Fan. My doctoral research investigates the evolution and molecular regulatory mechanisms
-  of sex determination in spinach through comparative genomics, transcriptomics, and functional gene characterization.
+  by Prof. Chuanzhu Fan. My research investigates the genetic and molecular mechanisms of sex determination
+  in plants. Using comparative genomics, transcriptomics, and functional gene characterization, I study
+  sex determination and its evolution in spinach, a predominantly dioecious crop.
 
 
-  I earned my M.S. from Shanghai Ocean University in 2024, advised by Prof. Peimin He, and my B.S. from
-  Shandong University of Aeronautics in 2021, advised by Prof. Jingkuan Sun. My research has focused on
-  plant stress responses and coastal wetland restoration, including genomic and transcriptomic profiling
-  of *Suaeda salsa* across salinity gradients and studies of the role of betacyanins in photosynthetic
-  protection.
+  My previous research focused on environmental stress responses in the coastal halophyte *Suaeda salsa*,
+  including genomic and transcriptomic analyses of salinity responses, temperature-dependent betacyanin
+  biosynthesis, and the role of betacyanins in photosynthetic protection under salt stress. During my
+  M.S. at Shanghai Ocean University, advised by Prof. Peimin He, I also contributed to coastal wetland
+  restoration projects through field sampling, laboratory experiments, and data analysis.
 
 
-  Alongside my research, I serve as a Graduate Teaching Assistant at Wayne State University, teaching
-  Genetics and Principles of Microbiology Lab.'
+  Alongside my research, I serve as a Graduate Teaching Assistant at Wayne State University, supporting
+  instruction in Genetics and Principles of Microbiology Lab, and received a Graduate Teaching Assistant
+  Award in 2026.'
 affiliations:
 - name: Wayne State University
   url: https://wayne.edu/
@@ -40,12 +45,10 @@ links:
   url: https://clasprofiles.wayne.edu/profile/hu5190
   label: Wayne State University Profile
 interests:
-- Sex Determination in Plants
+- Plant Sex Determination
 - Comparative Genomics
-- Transcriptomics
-- Functional Gene Characterization
 - Plant Stress Responses
-- Coastal Ecological Restoration
+- Coastal Wetland Restoration
 education:
 - degree: Ph.D. in Biological Sciences (in progress)
   institution: Wayne State University
@@ -73,7 +76,7 @@ experience:
   date_text: Aug 2024–Present
   summary: 'Advisor: Prof. Chuanzhu Fan. Molecular mechanisms of sex determination in spinach using comparative
     genomics, transcriptomics, and functional gene characterization.'
-- role: Master’s Student Researcher
+- role: Graduate Researcher
   org: Shanghai Ocean University
   start: '2021-01-01'
   end: '2024-01-01'

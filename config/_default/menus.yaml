@@ -1,15 +1,15 @@
 main:
-- name: Bio
+- name: About
   url: /
   weight: 10
-- name: Publications
-  url: /#papers
+- name: Research
+  url: /#research
   weight: 20
+- name: Publications
+  url: /#selected
+  weight: 30
 - name: Teaching
   url: /#teaching
-  weight: 30
-- name: Posters
-  url: /#posters
   weight: 40
 - name: Awards
   url: /#awards
