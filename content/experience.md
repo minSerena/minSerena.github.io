@@ -1,44 +1,61 @@
 ---
-title: Research & Education
-date: '2023-01-01'
+title: Research, Education & Teaching
+date: '2024-08-01'
 type: landing
 sections:
 - block: markdown
+  id: education
   content:
     title: Education
-    text: "### Shanghai Ocean University · M.Sc. studies in Marine Science\n**2021–2024 (expected completion\
-      \ in supplied CV)** · GPA: 3.71/4.00  \nAdvisor: Prof. Peimin He.  \nThesis: *The Mechanism of Color\
-      \ Change of Suaeda salsa Betacyanins*.\n\n### Binzhou University · B.Sc. in Ecology\n**2017–2021**\
-      \ · GPA: 3.73/4.00  \nAdvisor: Prof. Jingkuan Sun.\n\nEducation and research dates reflect the supplied\
-      \ CV. Current degree and appointment information will be updated when confirmed."
+    text: "### Wayne State University · Ph.D. (in progress)\n**2024–Present** · Detroit, Michigan, USA.\
+      \  \nDepartment of Biological Sciences. Advisor: Prof. Chuanzhu Fan.\n\n### Shanghai Ocean University\
+      \ · M.S.\n**2024** · Shanghai, China.\n\n### Binzhou University · B.S.\n**2021** · Binzhou, Shandong\
+      \ Province, China."
   design:
     columns: '1'
 - block: markdown
+  id: research
   content:
     title: Research Experience
-    text: "### Water environment restoration · Research Assistant\n**From 2023, as recorded in the CV**\
-      \ · Advisor: Prof. Peimin He.  \nEcological restoration technology for water environment improvement\
-      \ in river–sea transition areas.\n\n### Coastal wetland restoration · Research Assistant\n**2022–2023**\
-      \ · Advisor: Prof. Peimin He.  \nResearch on key technologies for restoring *Suaeda salsa* ecosystems\
-      \ in Shanghai coastal wetlands.\n\n### Mudflat plant stress tolerance · Research Assistant\n**2021–2022**\
-      \ · Advisor: Prof. Peimin He.  \nStudy of the stress adaptability of typical plant species used\
-      \ for mudflat ecological restoration in the East China Sea.\n\n### Ecological stoichiometry · Research\
-      \ Student\n**2019–2020** · Advisor: Prof. Jingkuan Sun.  \nResearch on C:N:P homeostasis regulation\
-      \ in salt-tolerant wetland plants in the Yellow River Delta.\n\n### Undergraduate innovation research\
-      \ · Program Leader\n**2018–2019** · Advisor: Prof. Jingkuan Sun.  \nNational Undergraduate Training\
-      \ Program for Innovation and Entrepreneurship (2019 program)."
+    text: "### Doctoral Researcher · Wayne State University\n**August 2024–Present** · Detroit, Michigan,\
+      \ USA.  \nAdvisor: **Prof. Chuanzhu Fan**.\n\nInvestigating the molecular mechanisms of sex determination\
+      \ in spinach using comparative genomics, transcriptomics, and functional gene characterization.\n\
+      \n### Master’s Student Researcher · Shanghai Ocean University\n**2021–2024** · Shanghai, China.\
+      \  \nAdvisor: **Prof. Peimin He**.\n\n**Ecological Restoration Technologies for Water Quality Improvement\
+      \ in River–Sea Transition Zones · 2023–2024**  \nContributed to research proposals, project documentation,\
+      \ and final reports.\n\n**Restoration of *Suaeda salsa* Ecosystems in Shanghai Coastal Wetlands\
+      \ · 2022–2023**  \nConducted field sampling, laboratory experiments, and data analysis. Contributed\
+      \ to research proposals, technical reports, and scientific presentations.\n\n**Stress Adaptation\
+      \ of Plants for Ecological Restoration of East China Sea Tidal Flats · 2021–2022**  \nAssisted with\
+      \ laboratory research, project documentation, and final reports."
   design:
     columns: '1'
 - block: markdown
+  id: teaching
   content:
-    title: Volunteer & Service
-    text: '- **2023:** Campus guide.
+    title: Teaching Experience
+    text: '### Graduate Teaching Assistant
 
-      - **2022:** Community support for SARS-CoV-2 PCR testing; cafeteria volunteer service.
+      **Wayne State University · Department of Biological Sciences · 2024–Present**
 
-      - **2021:** Sunshine Sports Festival volunteer.
 
-      - **2019–2020:** Counselor assistant.'
+      | Semester | Course |
+
+      | --- | --- |
+
+      | Fall 2026 | Genetics (BIO 3070) |
+
+      | Spring/Summer 2026 | Principles of Microbiology Lab (BIO 2271) |
+
+      | Winter 2026 | Genetics (BIO 3070) |
+
+      | Fall 2025 | Genetics (BIO 3070) |
+
+      | Spring/Summer 2026 | Genetics (BIO 3070) |
+
+      | Winter 2025 | Genetics (BIO 3070) |
+
+      | Fall 2024 | Genetics (BIO 3070) |'
   design:
     columns: '1'
 ---

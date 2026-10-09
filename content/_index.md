@@ -1,10 +1,10 @@
 ---
 title: ''
-summary: Academic homepage of Min Li
+summary: Min Li — Ph.D. Student in Biological Sciences at Wayne State University
 date: '2023-01-01'
 type: landing
 seo:
-  title: Min Li | Marine Science & Plant Ecology
+  title: Min Li | Biological Sciences | Wayne State University
 sections:
 - block: resume-biography-3
   content:
@@ -31,25 +31,42 @@ sections:
   id: papers
   content:
     title: Publications
-    text: First-author work on betacyanin biosynthesis and plant responses to environmental stress. See
-      my [Google Scholar](https://scholar.google.com/citations?user=COScV94AAAAJ&hl=en) for my publication
-      record.
+    text: 'Research on plant genomics, stress responses, and coastal ecology. * denotes co-first authorship;
+      # denotes corresponding authors. See my [Google Scholar](https://scholar.google.com/citations?user=COScV94AAAAJ&hl=en)
+      for my publication record.'
     filters:
       folders:
       - publications
   design:
     view: citation
 - block: markdown
-  id: patents
+  id: teaching
   content:
-    title: Patent Applications
-    text: "**An Efficient Method for Promoting Seed Germination of *Suaeda salsa***  \nMin Li, Peimin\
-      \ He, Zitao Zhao, Shaozu Ma, Min Zhang, Rong Wang, Yuchao Liu, Langang Wang.  \nApplication number:\
-      \ **2023110327837** · China National Intellectual Property Administration.\n\n**A Transplantation\
-      \ Method for *Suaeda salsa* Seedling**  \nMin Li, Rong Wang, Peimin He, Shaozu Ma, Langang Wang,\
-      \ Yang Gao, Xiaona Xu.  \nApplication number: **202311072180.X** · China National Intellectual Property\
-      \ Administration.\n\nBoth applications were listed as under review in the supplied CV; their current\
-      \ status has not been confirmed."
+    title: Teaching
+    text: '**Graduate Teaching Assistant** · Department of Biological Sciences, Wayne State University
+      · **2024–Present**
+
+
+      Genetics (BIO 3070) and Principles of Microbiology Lab (BIO 2271).
+
+
+      [View teaching history](experience/#teaching).'
+  design:
+    columns: '1'
+- block: markdown
+  id: posters
+  content:
+    title: Conference Posters & Abstracts
+    text: '**Unraveling Salt-Responsive Genes in *Suaeda salsa* through Genomic and Transcriptomic Profiling
+      across Salinity Gradients**
+
+
+      Min Li, Xiangyu Zhou, Jiaxin Wu, Edward M. Golenberg, Dongxiao Zhu, Peimin He, Chuanzhu Fan.
+
+
+      - **February 25, 2026:** Graduate Research Symposium, Wayne State University — poster.
+
+      - **October 13, 2025:** Biological Sciences Retreat, Wayne State University — poster.'
   design:
     columns: '1'
 - block: honors

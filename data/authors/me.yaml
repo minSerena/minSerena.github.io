@@ -5,23 +5,26 @@ name:
   display: Min Li
   given: Min
   family: Li
-role: Marine Science · Plant Ecology
-bio: 'My research focuses on **plant physiology and coastal wetland ecology**, with a particular interest
-  in *Suaeda salsa*, betacyanin synthesis, and plant responses to environmental stress.
+role: Ph.D. Student in Biological Sciences
+bio: 'I am a **Ph.D. student in the Department of Biological Sciences at Wayne State University**, advised
+  by **Prof. Chuanzhu Fan**. My doctoral research investigates the molecular mechanisms of **sex determination
+  in spinach**, using comparative genomics, transcriptomics, and functional gene characterization.
 
 
-  My graduate research at Shanghai Ocean University, advised by Prof. Peimin He, explored the mechanism
-  of color change in *Suaeda salsa*. My undergraduate training in ecology at Binzhou University was supervised
-  by Prof. Jingkuan Sun.
+  I received my M.S. from Shanghai Ocean University in 2024, where I worked with **Prof. Peimin He** on
+  plant stress responses and coastal ecological restoration, and my B.S. from Binzhou University in 2021.
+  My research includes genomic and transcriptomic profiling of *Suaeda salsa* across salinity gradients,
+  betacyanin-mediated photosynthetic protection, and coastal wetland restoration.
 
 
-  I have contributed to research on coastal wetland restoration, mudflat plant stress tolerance, and water
-  environment improvement in river–sea transition areas. My work includes first-author publications on
-  betacyanin synthesis and its regulation.'
-affiliations: []
+  Alongside my research, I serve as a **Graduate Teaching Assistant** at Wayne State University, teaching
+  Genetics and Principles of Microbiology Lab.'
+affiliations:
+- name: Wayne State University
+  url: https://wayne.edu/
 links:
 - icon: hero/at-symbol
-  url: mailto:lmin177@163.com
+  url: mailto:min@wayne.edu
   label: Email
 - icon: brands/github
   url: https://github.com/minSerena
@@ -33,38 +36,45 @@ links:
   url: https://scholar.google.com/citations?user=COScV94AAAAJ&hl=en
   label: Google Scholar
 interests:
-- Plant Physiology
-- Coastal Wetland Ecology
-- Betacyanin Biosynthesis
-- Environmental Stress Responses
-- Ecological Restoration
+- Sex Determination in Plants
+- Comparative Genomics
+- Transcriptomics
+- Functional Gene Characterization
+- Plant Stress Responses
+- Coastal Ecological Restoration
 education:
-- degree: M.Sc. studies in Marine Science
+- degree: Ph.D. in Biological Sciences (in progress)
+  institution: Wayne State University
+  start: '2024-08-01'
+  end: ''
+  date_text: 2024–Present
+  summary: 'Advisor: Prof. Chuanzhu Fan. Detroit, Michigan, USA.'
+- degree: M.S.
   institution: Shanghai Ocean University
   start: '2021-01-01'
-  end: ''
-  date_text: 2021–2024 (expected in supplied CV)
-  summary: 'Advisor: Prof. Peimin He. Thesis: The Mechanism of Color Change of Suaeda salsa Betacyanins.
-    GPA: 3.71/4.00. Completion status awaiting an updated CV.'
-- degree: B.Sc. in Ecology
+  end: '2024-01-01'
+  date_text: '2024'
+  summary: 'Shanghai, China. Research advisor: Prof. Peimin He.'
+- degree: B.S.
   institution: Binzhou University
-  start: '2017-01-01'
+  start: ''
   end: '2021-01-01'
-  date_text: 2017–2021
-  summary: 'Advisor: Prof. Jingkuan Sun. GPA: 3.73/4.00.'
+  date_text: '2021'
+  summary: Binzhou, Shandong Province, China.
 experience:
-- role: Research Assistant — Water Environment Restoration
-  org: Research supervised by Prof. Peimin He
-  start: '2023-01-01'
+- role: Doctoral Researcher
+  org: Wayne State University
+  start: '2024-08-01'
   end: ''
-  date_text: From 2023 (as recorded in CV)
-  summary: Ecological restoration technology for water environment improvement in river–sea transition
-    areas. Current end date unconfirmed.
-- role: Research Assistant — Coastal Wetland Restoration
-  org: Research supervised by Prof. Peimin He
-  start: '2022-01-01'
-  end: '2023-01-01'
-  date_text: 2022–2023
-  summary: Key technologies for restoring Suaeda salsa ecosystems in Shanghai coastal wetlands.
+  date_text: Aug 2024–Present
+  summary: 'Advisor: Prof. Chuanzhu Fan. Molecular mechanisms of sex determination in spinach using comparative
+    genomics, transcriptomics, and functional gene characterization.'
+- role: Master’s Student Researcher
+  org: Shanghai Ocean University
+  start: '2021-01-01'
+  end: '2024-01-01'
+  date_text: 2021–2024
+  summary: 'Advisor: Prof. Peimin He. Coastal wetland restoration, water quality improvement, and plant
+    stress adaptation.'
 ids:
   google_scholar: COScV94AAAAJ

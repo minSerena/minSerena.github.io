@@ -5,12 +5,15 @@ main:
 - name: Publications
   url: /#papers
   weight: 20
-- name: Patents
-  url: /#patents
+- name: Teaching
+  url: /#teaching
   weight: 30
+- name: Posters
+  url: /#posters
+  weight: 40
 - name: Awards
   url: /#awards
-  weight: 40
+  weight: 50
 - name: Experience
   url: experience/
-  weight: 50
+  weight: 60

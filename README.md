@@ -30,16 +30,13 @@ Open http://localhost:1313. To verify the production build, run `pnpm build`.
 | Navigation | `config/_default/menus.yaml` |
 | Custom styles | `assets/css/hbx/blocks/shared/site/custom.css` |
 
-## Content still to confirm
+## Content source and updates
 
-- Current institution, appointment, and actual master's completion date. The provided CV lists expected graduation in 2024; the site does not assume graduation or ongoing enrollment.
-- Current end date for the research project starting in 2023.
-- Portrait and updated CV.
-- Current patent status and complete publication record.
-- The Plant Physiology Journal paper's final year, volume, and pages: the supplied CV cites 2023; publisher search results suggest a later final issue. Keep the CV citation until confirmed.
-- Google Scholar metrics: no counts are displayed until verified.
+The website now follows `Min Li CV_2026.pdf` supplied on 8 October 2026. It includes current doctoral research, master's research projects, teaching, eight refereed articles, two poster presentations, and the CV's honors and awards. Previously displayed patents, volunteer service, GPA, and undergraduate research projects are no longer displayed. No grant section is included.
 
-The original `Min Li CV.pdf` is retained. The downloadable copy is byte-identical. Year-only dates in the CV use January 1 for Hugo sorting, while visible CV timelines retain year-only labels. The Frontiers paper's title and publication date were verified against the publisher (26 June 2023).
+`Min Li CV.pdf` and `static/uploads/Min-Li-CV.pdf` are byte-identical copies of the latest supplied CV. Existing GitHub, LinkedIn, and Google Scholar links are retained from the user's earlier instructions. A portrait and verified Scholar metrics can be added later.
+
+Year-only publication dates use January 1 for Hugo sorting; they do not assert an exact publication date. New article titles, authors, and venue details follow the CV. The two previously verified DOI links are retained. Teaching semesters follow the CV literally, including its second Spring/Summer 2026 entry for Genetics (between Fall 2025 and Winter 2025), pending the user's clarification.
 
 ## GitHub Pages
 

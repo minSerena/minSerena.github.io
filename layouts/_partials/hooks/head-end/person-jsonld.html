@@ -25,6 +25,11 @@
       "knowsAbout" .interests
       "sameAs" $sameAs
   }}
+  {{ with .affiliations }}
+    {{ $affiliations := slice }}
+    {{ range . }}{{ $affiliations = $affiliations | append (dict "@type" "CollegeOrUniversity" "name" .name "url" .url) }}{{ end }}
+    {{ $person = merge $person (dict "affiliation" $affiliations) }}
+  {{ end }}
   {{ with .name.alternate }}{{ $person = merge $person (dict "alternateName" .) }}{{ end }}
   {{ with $alumni }}{{ $person = merge $person (dict "alumniOf" .) }}{{ end }}
   {{ with resources.Get "media/authors/me.png" }}

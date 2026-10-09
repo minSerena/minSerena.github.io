@@ -3,9 +3,9 @@ hugoblox:
   identity:
     name: Min Li
     type: person
-    tagline: Marine Science · Plant Ecology
-    description: 'Academic homepage of Min Li: plant physiology, betacyanin biosynthesis, coastal wetland
-      ecology, and ecological restoration.'
+    tagline: Ph.D. Student | Wayne State University
+    description: Academic homepage of Min Li, a Ph.D. student in Biological Sciences at Wayne State University
+      studying plant sex determination, comparative genomics, transcriptomics, and plant stress responses.
   theme:
     mode: system
     pack: default
