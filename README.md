@@ -45,3 +45,9 @@ In the repository, set **Settings → Pages → Source → GitHub Actions**. Pus
 ## Attribution
 
 Template and theme code: MIT, © George Cushen (see `LICENSE.md`). Local layout customizations adapted from https://github.com/xzhou98/xzhou98.github.io. Original author's biographical text, publications, photographs, and CV are not included. Personal content is based on Min Li's supplied CV and links.
+
+## Google discovery
+
+The homepage uses a descriptive title (Min Li Homepage | Plant Genomics | Wayne State University), research-focused description, canonical URL, and linked Person/ProfilePage structured data. `robots.txt` permits crawling and advertises `sitemap.xml`. These help search engines understand the page; they do not guarantee indexing or ranking for a common name.
+
+After deployment, verify `https://minserena.github.io/` as a URL-prefix property in Google Search Console, submit `sitemap.xml`, and request homepage indexing. Add this homepage URL to your Google Scholar, GitHub, LinkedIn, and university profile where available. Search Console performance reports can then show which name-and-research queries actually lead to the site.

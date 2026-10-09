@@ -1,10 +1,11 @@
 ---
 title: ''
-summary: Min Li — Ph.D. Student in Biological Sciences at Wayne State University
+summary: Min Li's academic homepage. Ph.D. student at Wayne State University researching spinach sex determination,
+  comparative genomics, and plant stress responses.
 date: '2023-01-01'
 type: landing
 seo:
-  title: Min Li | Biological Sciences | Wayne State University
+  title: Min Li Homepage | Plant Genomics | Wayne State University
 sections:
 - block: resume-biography-3
   content:
@@ -74,4 +75,5 @@ sections:
   id: awards
   content:
     title: Awards & Recognition
+lastmod: '2026-10-08'
 ---

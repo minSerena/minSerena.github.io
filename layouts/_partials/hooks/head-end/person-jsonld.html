@@ -15,13 +15,14 @@
     {{ if .end }}{{ $alumni = $alumni | append (dict "@type" "CollegeOrUniversity" "name" .institution) }}{{ end }}
   {{ end }}
   {{ $person := dict
-      "@context" "https://schema.org"
+      "@id" (printf "%s#person" site.Home.Permalink)
       "@type" "Person"
       "name" .name.display
       "givenName" .name.given
       "familyName" .name.family
       "url" site.Home.Permalink
       "jobTitle" .role
+      "description" site.Home.Params.summary
       "knowsAbout" .interests
       "sameAs" $sameAs
   }}
@@ -35,6 +36,15 @@
   {{ with resources.Get "media/authors/me.png" }}
     {{ $person = merge $person (dict "image" (.Fill "400x400 Center webp").Permalink) }}
   {{ end }}
-  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+  {{ $profilePage := dict
+      "@type" "ProfilePage"
+      "@id" (printf "%s#profile" site.Home.Permalink)
+      "url" site.Home.Permalink
+      "name" site.Home.Params.seo.title
+      "description" site.Home.Params.summary
+      "mainEntity" (dict "@id" (printf "%s#person" site.Home.Permalink))
+  }}
+  {{ $graph := dict "@context" "https://schema.org" "@graph" (slice $person $profilePage) }}
+  <script type="application/ld+json">{{ $graph | jsonify | safeJS }}</script>
 {{ end }}
 {{ end }}

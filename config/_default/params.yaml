@@ -4,8 +4,8 @@ hugoblox:
     name: Min Li
     type: person
     tagline: Ph.D. Student | Wayne State University
-    description: Academic homepage of Min Li, a Ph.D. student in Biological Sciences at Wayne State University
-      studying plant sex determination, comparative genomics, transcriptomics, and plant stress responses.
+    description: 'Min Li''s academic homepage at Wayne State University: spinach sex determination, comparative
+      genomics, transcriptomics, Suaeda salsa, and plant stress responses.'
   theme:
     mode: system
     pack: default
