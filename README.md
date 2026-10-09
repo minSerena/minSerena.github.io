@@ -36,7 +36,7 @@ The website now follows `Min Li CV_2026.pdf` supplied on 8 October 2026. It incl
 
 `Min Li CV.pdf` and `static/uploads/Min-Li-CV.pdf` are byte-identical copies of the latest supplied CV. Existing GitHub, LinkedIn, and Google Scholar links are retained from the user's earlier instructions. A portrait and verified Scholar metrics can be added later.
 
-Year-only publication dates use January 1 for Hugo sorting; they do not assert an exact publication date. New article titles, authors, and venue details follow the CV. The two previously verified DOI links are retained. Teaching semesters follow the CV literally, including its second Spring/Summer 2026 entry for Genetics (between Fall 2025 and Winter 2025), pending the user's clarification.
+Year-only publication dates use January 1 for Hugo sorting; they do not assert an exact publication date. New article titles, authors, and venue details follow the CV. The two previously verified DOI links are retained. Teaching semesters follow the CV, with the Genetics Spring/Summer semester corrected to 2025 per the user's confirmation.
 
 ## GitHub Pages
 

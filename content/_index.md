@@ -37,6 +37,7 @@ sections:
     filters:
       folders:
       - publications
+    count: 0
   design:
     view: citation
 - block: markdown
@@ -74,4 +75,3 @@ sections:
   content:
     title: Awards & Recognition
 ---
-

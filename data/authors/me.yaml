@@ -6,18 +6,19 @@ name:
   given: Min
   family: Li
 role: Ph.D. Student in Biological Sciences
-bio: 'I am a **Ph.D. student in the Department of Biological Sciences at Wayne State University**, advised
-  by **Prof. Chuanzhu Fan**. My doctoral research investigates the molecular mechanisms of **sex determination
-  in spinach**, using comparative genomics, transcriptomics, and functional gene characterization.
+bio: 'I am a Ph.D. student in the Department of Biological Sciences at Wayne State University, advised
+  by Prof. Chuanzhu Fan. My doctoral research investigates the evolution and molecular regulatory mechanisms
+  of sex determination in spinach through comparative genomics, transcriptomics, and functional gene characterization.
 
 
-  I received my M.S. from Shanghai Ocean University in 2024, where I worked with **Prof. Peimin He** on
-  plant stress responses and coastal ecological restoration, and my B.S. from Binzhou University in 2021.
-  My research includes genomic and transcriptomic profiling of *Suaeda salsa* across salinity gradients,
-  betacyanin-mediated photosynthetic protection, and coastal wetland restoration.
+  I earned my M.S. from Shanghai Ocean University in 2024, advised by Prof. Peimin He, and my B.S. from
+  Shandong University of Aeronautics in 2021, advised by Prof. Jingkuan Sun. My research has focused on
+  plant stress responses and coastal wetland restoration, including genomic and transcriptomic profiling
+  of *Suaeda salsa* across salinity gradients and studies of the role of betacyanins in photosynthetic
+  protection.
 
 
-  Alongside my research, I serve as a **Graduate Teaching Assistant** at Wayne State University, teaching
+  Alongside my research, I serve as a Graduate Teaching Assistant at Wayne State University, teaching
   Genetics and Principles of Microbiology Lab.'
 affiliations:
 - name: Wayne State University
@@ -35,6 +36,9 @@ links:
 - icon: academicons/google-scholar
   url: https://scholar.google.com/citations?user=COScV94AAAAJ&hl=en
   label: Google Scholar
+- icon: hero/academic-cap
+  url: https://clasprofiles.wayne.edu/profile/hu5190
+  label: Wayne State University Profile
 interests:
 - Sex Determination in Plants
 - Comparative Genomics
@@ -56,7 +60,7 @@ education:
   date_text: '2024'
   summary: 'Shanghai, China. Research advisor: Prof. Peimin He.'
 - degree: B.S.
-  institution: Binzhou University
+  institution: Shandong University of Aeronautics
   start: ''
   end: '2021-01-01'
   date_text: '2021'

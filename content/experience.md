@@ -9,7 +9,7 @@ sections:
     title: Education
     text: "### Wayne State University · Ph.D. (in progress)\n**2024–Present** · Detroit, Michigan, USA.\
       \  \nDepartment of Biological Sciences. Advisor: Prof. Chuanzhu Fan.\n\n### Shanghai Ocean University\
-      \ · M.S.\n**2024** · Shanghai, China.\n\n### Binzhou University · B.S.\n**2021** · Binzhou, Shandong\
+      \ · M.S.\n**2024** · Shanghai, China.\n\n### Shandong University of Aeronautics · B.S.\n**2021** · Binzhou, Shandong\
       \ Province, China."
   design:
     columns: '1'
@@ -51,7 +51,7 @@ sections:
 
       | Fall 2025 | Genetics (BIO 3070) |
 
-      | Spring/Summer 2026 | Genetics (BIO 3070) |
+      | Spring/Summer 2025 | Genetics (BIO 3070) |
 
       | Winter 2025 | Genetics (BIO 3070) |
 
