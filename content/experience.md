@@ -9,8 +9,8 @@ sections:
     title: Education
     text: "### Wayne State University · Ph.D. (in progress)\n**2024–Present** · Detroit, Michigan, USA.\
       \  \nDepartment of Biological Sciences. Advisor: Prof. Chuanzhu Fan.\n\n### Shanghai Ocean University\
-      \ · M.S.\n**2024** · Shanghai, China.\n\n### Shandong University of Aeronautics · B.S.\n**2021** · Binzhou, Shandong\
-      \ Province, China."
+      \ · M.S.\n**2024** · Shanghai, China.\n\n### Shandong University of Aeronautics · B.S.\n**2021**\
+      \ · Binzhou, Shandong Province, China."
   design:
     columns: '1'
 - block: markdown
@@ -22,12 +22,12 @@ sections:
       \ in spinach using comparative genomics, transcriptomics, and functional gene characterization.\n\
       \n### Master’s Student Researcher · Shanghai Ocean University\n**2021–2024** · Shanghai, China.\
       \  \nAdvisor: **Prof. Peimin He**.\n\n**Ecological Restoration Technologies for Water Quality Improvement\
-      \ in River–Sea Transition Zones · 2023–2024**  \nContributed to research proposals, project documentation,\
-      \ and final reports.\n\n**Restoration of *Suaeda salsa* Ecosystems in Shanghai Coastal Wetlands\
-      \ · 2022–2023**  \nConducted field sampling, laboratory experiments, and data analysis. Contributed\
-      \ to research proposals, technical reports, and scientific presentations.\n\n**Stress Adaptation\
-      \ of Plants for Ecological Restoration of East China Sea Tidal Flats · 2021–2022**  \nAssisted with\
-      \ laboratory research, project documentation, and final reports."
+      \ in River–Sea Transition Zones · 2023–2024**  \nPrimarily responsible for drafting the grant proposal.\n\
+      \n**Restoration of *Suaeda salsa* Ecosystems in Shanghai Coastal Wetlands · 2022–2023**  \nConducted\
+      \ field sampling, laboratory experiments, and data analysis. Contributed to research proposals,\
+      \ technical reports, and scientific presentations.\n\n**Stress Adaptation of Plants for Ecological\
+      \ Restoration of East China Sea Tidal Flats · 2021–2022**  \nAssisted with laboratory research,\
+      \ project documentation, and final reports."
   design:
     columns: '1'
 - block: markdown
@@ -59,4 +59,3 @@ sections:
   design:
     columns: '1'
 ---
-
