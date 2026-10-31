@@ -32,7 +32,7 @@ sections:
     photos:
     - src: uploads/news/short-talk.jpg
       alt: Min Li giving a short talk at Wayne State University.
-      caption: Short talk | Biological Sciences Research Retreat, 2026
+      caption: Biological Sciences Annual Research Retreat, 2026
       width: 1920
       height: 1280
     - src: uploads/news/poster-presentation.jpg
