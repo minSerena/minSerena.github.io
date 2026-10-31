@@ -6,20 +6,14 @@ name:
   given: Min
   family: Li
 role: Ph.D. Student in Biological Sciences
-bio: 'I am a Ph.D. student in the Department of Biological Sciences at Wayne State University, advised
-  by Prof. Chuanzhu Fan. My doctoral research investigates the evolution and molecular regulatory mechanisms
-  of sex determination in spinach through comparative genomics, transcriptomics, and functional gene characterization.
+bio: |-
+  I am a Ph.D. student in Biological Sciences at Wayne State University. My current research integrates comparative genomics, transcriptomics, and functional gene characterization to investigate the genetic and molecular mechanisms of sex determination in spinach and how these mechanisms have evolved.
 
+  I received my M.S. from Shanghai Ocean University, where I investigated the mechanisms underlying betacyanin-associated color changes in *Suaeda salsa*. I also contributed to coastal wetland restoration, which shaped my interest in how organisms respond to environmental change.
 
-  I earned my M.S. from Shanghai Ocean University in 2024, advised by Prof. Peimin He, and my B.S. from
-  Shandong University of Aeronautics in 2021, advised by Prof. Jingkuan Sun. My research has focused on
-  plant stress responses and coastal wetland restoration, including genomic and transcriptomic profiling
-  of *Suaeda salsa* across salinity gradients and studies of the role of betacyanins in photosynthetic
-  protection.
+  Building on these experiences, my broader research interests lie at the intersection of ecology and evolution. I aim to understand how molecular mechanisms, phenotypic plasticity, and evolutionary adaptation shape organismal responses to changing environments.
 
-
-  Alongside my research, I serve as a Graduate Teaching Assistant at Wayne State University, teaching
-  Genetics and Principles of Microbiology Lab.'
+  I welcome opportunities to connect with others working in genomics, evolutionary biology, and ecology, so please feel free to reach out.
 affiliations:
 - name: Wayne State University
   url: https://wayne.edu/
