@@ -401,6 +401,22 @@ section#about a:hover,
   background: linear-gradient(90deg, var(--color-primary-400), var(--color-secondary-400));
 }
 
+/* Give the teaching appointment enough room for one line on desktop. */
+#teaching .prose {
+  width: 100%;
+  max-width: none;
+}
+@media (min-width: 1024px) {
+  #teaching .prose > p:first-child {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1280px) {
+  #teaching .prose > p:first-child {
+    font-size: 1.125rem;
+  }
+}
+
 /* News subtitle: two type-scale steps below the section heading. */
 #news #recent-updates {
   font-size: clamp(1.25rem, 0.75rem + 1.6vw, 1.5rem);
