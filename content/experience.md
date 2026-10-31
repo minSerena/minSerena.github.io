@@ -7,8 +7,7 @@ sections:
   id: education
   content:
     title: Education
-    text: "### Wayne State University · Ph.D. (in progress)\n**2024–Present** · Detroit, Michigan, USA.\
-      \  \nDepartment of Biological Sciences. Advisor: Prof. Chuanzhu Fan.\n\n### Shanghai Ocean University\
+    text: "### Wayne State University · Ph.D. (in progress)\n**2024–Present** · Detroit, Michigan, USA.\n\n### Shanghai Ocean University\
       \ · M.S.\n**2024** · Shanghai, China.\n\n### Shandong University of Aeronautics · B.S.\n**2021**\
       \ · Binzhou, Shandong Province, China."
   design:

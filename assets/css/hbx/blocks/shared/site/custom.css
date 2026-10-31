@@ -401,7 +401,14 @@ section#about a:hover,
   background: linear-gradient(90deg, var(--color-primary-400), var(--color-secondary-400));
 }
 
-/* Give the teaching appointment enough room for one line on desktop. */
+/* Give experience headings enough room for one line on desktop. */
+#education > .home-section-bg + div,
+#research > .home-section-bg + div {
+  width: 100%;
+  max-width: 64rem;
+}
+#education .prose,
+#research .prose,
 #teaching .prose {
   width: 100%;
   max-width: none;
