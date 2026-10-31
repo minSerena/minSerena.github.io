@@ -423,6 +423,66 @@ section#about a:hover,
   line-height: 1.3;
 }
 
+/* Keep wrapped news text aligned with the sentence after the date. */
+#news .prose > p {
+  position: relative;
+  padding-inline-start: 5em;
+}
+#news .prose > p > .news-date {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* News copy and presentation photos, stacked on small screens. */
+.page-body:has(> #section-resume-biography-3) > section.hbb-section#news > .home-section-bg + .news-feature {
+  max-width: 75rem;
+  padding-inline: clamp(0rem, 2vw, 1.25rem);
+}
+.news-feature__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+#news .news-feature__text {
+  max-width: none;
+  min-width: 0;
+}
+#news .news-feature__text > h2:first-child { margin-top: 0; }
+.news-feature__photos {
+  display: grid;
+  align-content: start;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 30rem;
+}
+.news-photo { margin: 0; }
+.news-photo a { display: block; border-radius: 0.75rem; }
+.news-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 18px rgb(0 0 0 / 0.08);
+}
+.news-photo figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-gray-600);
+}
+.dark .news-photo figcaption { color: var(--color-gray-400); }
+@media (min-width: 1024px) {
+  .news-feature__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
 /* Optional one-line description under a section title (`text:` in content/_index.md). */
 .page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > p {
   margin: 0.5rem 0 0;

@@ -1,0 +1,20 @@
+{{ $page := .wcPage }}
+{{ $content := .wcBlock.content }}
+<div class="news-feature">
+  <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ $content.title | $page.RenderString }}</div>
+  <div class="news-feature__grid">
+    <div class="prose prose-slate lg:prose-xl dark:prose-invert news-feature__text">
+      {{ $content.text | $page.RenderString | replaceRE `<p>([0-9]{4}\.[0-9]{2}) ` `<p><span class="news-date">${1}</span> ` | safeHTML }}
+    </div>
+    <aside class="news-feature__photos" aria-label="Talk and poster photos">
+      {{ range $content.photos }}
+      <figure class="news-photo">
+        <a href="{{ .src | relURL }}" target="_blank" rel="noopener" aria-label="View full photo: {{ .caption | $page.RenderString | plainify }}">
+          <img src="{{ .src | relURL }}" alt="{{ .alt }}" width="{{ .width }}" height="{{ .height }}" loading="lazy" decoding="async">
+        </a>
+        <figcaption>{{ .caption | $page.RenderString }}</figcaption>
+      </figure>
+      {{ end }}
+    </aside>
+  </div>
+</div>
