@@ -1,0 +1,5 @@
+{{ $author := .wcBlock.content.username | default "me" }}
+{{ $profile := partial "functions/get_author_profile" $author }}
+<div class="max-w-7xl mx-auto px-6">
+  {{ partial "background-cards.html" (dict "profile" $profile) }}
+</div>

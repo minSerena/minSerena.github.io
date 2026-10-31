@@ -13,9 +13,6 @@ sections:
     text: ''
     announcement:
       enable: false
-    button:
-      text: Download CV
-      url: uploads/Min-Li-CV.pdf
     headings:
       about: About Me
       interests: Research Interests
@@ -28,12 +25,27 @@ sections:
     avatar:
       size: medium
       shape: circle
+- block: markdown
+  id: news
+  content:
+    title: News
+    text: |-
+      ## Recent updates
+
+      **2026.10** Gave a **Short talk and poster presentation** at the **Biological Sciences Annual Research Retreat, Wayne State University**.
+
+      **2026.04** Paper published in ***BMC Genomics***: “Unraveling salt-responsive genes in *Suaeda salsa* through genomic and transcriptomic profiling across salinity gradients.”
+
+      **2026.02** Presented a **poster** at the **Graduate Research Symposium, Wayne State University**.
+
+      **2025.10** Presented a **poster** at the **Biological Sciences Annual Research Retreat, Wayne State University**.
+  design:
+    columns: '1'
 - block: collection
   id: papers
   content:
     title: Publications
-    text: 'Research on plant genomics, stress responses, and coastal ecology. * denotes co-first authorship;
-      # denotes corresponding authors. See my [Google Scholar](https://scholar.google.com/citations?user=COScV94AAAAJ&hl=en)
+    text: 'See my [Google Scholar](https://scholar.google.com/citations?user=COScV94AAAAJ&hl=en)
       for my publication record.'
     filters:
       folders:
@@ -55,25 +67,13 @@ sections:
       [View teaching history](experience/#teaching).'
   design:
     columns: '1'
-- block: markdown
-  id: posters
-  content:
-    title: Conference Posters & Abstracts
-    text: '**Unraveling Salt-Responsive Genes in *Suaeda salsa* through Genomic and Transcriptomic Profiling
-      across Salinity Gradients**
-
-
-      Min Li, Xiangyu Zhou, Jiaxin Wu, Edward M. Golenberg, Dongxiao Zhu, Peimin He, Chuanzhu Fan.
-
-
-      - **February 25, 2026:** Graduate Research Symposium, Wayne State University — poster.
-
-      - **October 13, 2025:** Biological Sciences Retreat, Wayne State University — poster.'
-  design:
-    columns: '1'
 - block: honors
   id: awards
   content:
     title: Awards & Recognition
+- block: background-cards
+  id: experience
+  content:
+    username: me
 lastmod: '2026-10-08'
 ---

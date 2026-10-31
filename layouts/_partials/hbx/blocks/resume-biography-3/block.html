@@ -1,8 +1,8 @@
 {{/* LOCAL OVERRIDE of HugoBlox resume-biography-3, copied verbatim from the version
      pinned in go.mod (github.com/HugoBlox/kit/modules/blox @ 76023f9461b1).
      Changes are marked LOCAL CHANGE: two added includes, `scholar-stats.html` (left column)
-     and `announcement.html` (right column), and the Education grid replaced by
-     `background-cards.html`. If you upgrade the blox module, re-copy the upstream file
+     and `announcement.html` (right column), and the Education grid removed
+     (now shown in the separate background-cards block). If you upgrade the blox module, re-copy the upstream file
      and re-apply those three changes. */}}
 {{/* Hugo Blox: Biography 3 */}}
 {{/* Documentation: https://hugoblox.com/blocks/ */}}
@@ -412,9 +412,7 @@
           {{ end }}
         {{ end }}
 
-        {{/* LOCAL CHANGE: the theme's Education grid is replaced by one row of four cards
-             (two most recent roles + two highest degrees). Original grid removed here. */}}
-        {{ partial "background-cards.html" (dict "profile" $profile) }}
+        {{/* LOCAL CHANGE: Education is shown in the final homepage block. */}}
 
         {{/* Interests Section */}}
         {{ $interests_raw := $profile.interests }}

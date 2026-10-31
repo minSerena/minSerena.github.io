@@ -401,6 +401,12 @@ section#about a:hover,
   background: linear-gradient(90deg, var(--color-primary-400), var(--color-secondary-400));
 }
 
+/* News subtitle: two type-scale steps below the section heading. */
+#news #recent-updates {
+  font-size: clamp(1.25rem, 0.75rem + 1.6vw, 1.5rem);
+  line-height: 1.3;
+}
+
 /* Optional one-line description under a section title (`text:` in content/_index.md). */
 .page-body:has(> #section-resume-biography-3) > .hbb-section:not(#section-resume-biography-3) > .home-section-bg + div > p {
   margin: 0.5rem 0 0;
