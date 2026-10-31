@@ -21,11 +21,17 @@ author_notes:
 - Corresponding author
 - Corresponding author
 - Corresponding author
-date: '2025-01-01'
+date: '2025-02-01'
 publication: Marine Environmental Research, 204, 106953
 publication_types:
 - article-journal
 featured: false
+hugoblox:
+  ids:
+    doi: 10.1016/j.marenvres.2025.106953
+links:
+- type: source
+  url: https://doi.org/10.1016/j.marenvres.2025.106953
 ---
 Zhangyi Xia, Jialing Yu, Yinqing Zeng, **Min Li**, Yuqing Sun, Yichao Tong, Jinlin Liu#, Jianheng Zhang#, Peimin He#.
 

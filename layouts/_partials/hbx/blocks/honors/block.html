@@ -3,7 +3,9 @@
      Usage in content/_index.md:   - block: honors
                                      id: awards
                                      content: { title: ..., text: ... }
-     Entries come from data/awards.yaml (year, title, optional note), newest first.
+     Entries come from data/awards.yaml (year, title, optional note, optional
+     featured), newest first. Entries with `featured: true` are listed; the rest are
+     folded under "Earlier honors". With no featured entries, everything is listed.
 
      The title wrapper reuses the theme's collection-block markup so it picks up the
      same left-aligned title / accent bar / description styles as the other sections
@@ -13,7 +15,24 @@
 {{ $content := $block.content }}
 {{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
 
+{{ define "partials/honors-list" }}
+  <ul class="awards-list">
+    {{ range .items }}
+    <li class="award">
+      <span class="award__year">{{ .year }}</span>
+      <span class="award__body">
+        <span class="award__title">{{ .title | $.page.RenderString }}</span>
+        {{ with .note }}<span class="award__note">{{ . | $.page.RenderString }}</span>{{ end }}
+      </span>
+    </li>
+    {{ end }}
+  </ul>
+{{ end }}
+
 {{ with hugo.Data.awards }}
+  {{ $featured := where . "featured" true }}
+  {{ $earlier := where . "featured" "!=" true }}
+  {{ if not $featured }}{{ $featured = . }}{{ $earlier = slice }}{{ end }}
   {{ with index $content "title" }}
   <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6 md:px-0">
     <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ printf "%v" . | emojify | $page.RenderString }}</div>
@@ -21,17 +40,13 @@
   </div>
   {{ end }}
   <div class="awards-wrap">
-    <ul class="awards-list">
-      {{ range . }}
-      <li class="award">
-        <span class="award__year">{{ .year }}</span>
-        <span class="award__body">
-          <span class="award__title">{{ .title | $page.RenderString }}</span>
-          {{ with .note }}<span class="award__note">{{ . | $page.RenderString }}</span>{{ end }}
-        </span>
-      </li>
-      {{ end }}
-    </ul>
+    {{ partial "honors-list" (dict "items" $featured "page" $page) }}
+    {{ with $earlier }}
+    <details class="awards-more">
+      <summary>Earlier honors ({{ len . }})</summary>
+      {{ partial "honors-list" (dict "items" . "page" $page) }}
+    </details>
+    {{ end }}
   </div>
 {{ else }}
   {{ warnf "awards block: data/awards.yaml not found or empty; block skipped." }}

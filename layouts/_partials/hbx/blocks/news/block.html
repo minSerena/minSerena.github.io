@@ -1,0 +1,31 @@
+{{/* Custom block: News. Dated one-line updates from data/news.yaml (date, text),
+     newest first. Shows the first `count` items (default 6).
+     Usage in content/_index.md:
+       - block: news
+         id: news
+         content: { title: News, count: 6 } */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+{{ $count := index $content "count" | default 6 }}
+
+{{ with hugo.Data.news }}
+  {{ with index $content "title" }}
+  <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6 md:px-0">
+    <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ printf "%v" . | $page.RenderString }}</div>
+  </div>
+  {{ end }}
+  <div class="awards-wrap">
+    <ul class="news-list">
+      {{ range first $count (sort . "date" "desc") }}
+      <li class="news-item">
+        <time class="news-item__date" datetime="{{ .date }}">{{ time.Format "Jan 2006" (time.AsTime .date) }}</time>
+        <span class="news-item__text">{{ .text | $page.RenderString }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ else }}
+  {{ warnf "news block: data/news.yaml not found or empty; block skipped." }}
+{{ end }}

@@ -12,8 +12,8 @@ author_notes:
 - ''
 - ''
 - Corresponding author
-date: '2023-01-01'
-publication: Plant Physiology Journal, 1–14 (in Chinese)
+date: '2024-01-01'
+publication: Plant Physiology Journal, 60(1), 63–74 (in Chinese)
 publication_types:
 - article-journal
 featured: false
@@ -26,6 +26,6 @@ links:
 ---
 **Min Li**, Zitao Zhao, Jinlin Liu, Shaozu Ma, Peimin He#.
 
-2023. *Research advance on the synthesis and regulation mechanism of betacyanins in Suaeda salsa*. **Plant Physiology Journal, 1–14 (in Chinese)**.
+2024. *Research advance on the synthesis and regulation mechanism of betacyanins in Suaeda salsa*. **Plant Physiology Journal, 60(1), 63–74 (in Chinese)**.
 
 * denotes co-first authorship; # denotes corresponding authors.

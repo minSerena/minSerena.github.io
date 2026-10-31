@@ -6,11 +6,10 @@ authors:
 - me
 - Yifei Shen
 - Ruitong Jiang
-- Jiaxin Wu
+- Jingwen Wang
 - Shaozu Ma
 - Meiqin Wu
 - Peimin He
-- et al.
 author_notes:
 - Co-first author
 - Co-first author
@@ -20,15 +19,22 @@ author_notes:
 - ''
 - ''
 - Corresponding author
-- ''
-date: '2025-01-01'
-publication: Planta, 261, 100
+date: '2025-04-01'
+publication: Planta, 261(5), 100
 publication_types:
 - article-journal
-featured: false
+featured: true
+# One-sentence contribution shown under Selected Publications.
+highlight: 'Shows that high salinity promotes betacyanin accumulation in *S. salsa* alongside transcriptional changes in photosystem genes, linking pigment production to photosynthetic protection under salt stress.'
+hugoblox:
+  ids:
+    doi: 10.1007/s00425-025-04664-7
+links:
+- type: source
+  url: https://doi.org/10.1007/s00425-025-04664-7
 ---
-Luyi Cai*, **Min Li***, Yifei Shen, Ruitong Jiang, Jiaxin Wu, Shaozu Ma, Meiqin Wu, Peimin He#, et al..
+Luyi Cai*, **Min Li***, Yifei Shen, Ruitong Jiang, Jingwen Wang, Shaozu Ma, Meiqin Wu, Peimin He#.
 
-2025. *Betacyanin accumulation mediates photosynthetic protection in Suaeda salsa (L.) Pall. under salt stress*. **Planta, 261, 100**.
+2025. *Betacyanin accumulation mediates photosynthetic protection in Suaeda salsa (L.) Pall. under salt stress*. **Planta, 261(5), 100**.
 
 * denotes co-first authorship; # denotes corresponding authors.

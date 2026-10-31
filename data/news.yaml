@@ -1,0 +1,17 @@
+# Homepage News (layouts/_partials/hbx/blocks/news/block.html), sorted by date
+# automatically. `text` is Markdown.
+- date: '2026-08-01'
+  text: Received the **Graduate Teaching Assistant Award** at Wayne State University.
+- date: '2026-04-10'
+  text: Our study of salinity responses in *Suaeda salsa* was published in **BMC Genomics**.
+    [DOI](https://doi.org/10.1186/s12864-026-12825-5)
+- date: '2026-02-25'
+  text: Presented a poster at the **Graduate Research Symposium**, Wayne State University.
+- date: '2025-10-13'
+  text: Presented a poster at the **Biological Sciences Retreat**, Wayne State University.
+- date: '2025-04-01'
+  text: Co-first-author paper on betacyanins and photosynthetic protection under salt stress published
+    in **Planta**. [DOI](https://doi.org/10.1007/s00425-025-04664-7)
+- date: '2024-08-01'
+  text: Started the Ph.D. program in Biological Sciences at **Wayne State University**, advised by Prof.
+    Chuanzhu Fan.

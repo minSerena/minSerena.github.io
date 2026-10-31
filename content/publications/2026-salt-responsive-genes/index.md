@@ -17,11 +17,19 @@ author_notes:
 - ''
 - Corresponding author
 - Corresponding author
-date: '2026-01-01'
+date: '2026-04-10'
 publication: BMC Genomics, 27, 475
 publication_types:
 - article-journal
-featured: false
+featured: true
+# One-sentence contribution shown under Selected Publications.
+highlight: 'Provides the first publicly available genome annotation for *Suaeda salsa* and identifies candidate genes associated with long-term salinity responses through transcriptomic profiling.'
+hugoblox:
+  ids:
+    doi: 10.1186/s12864-026-12825-5
+links:
+- type: source
+  url: https://doi.org/10.1186/s12864-026-12825-5
 ---
 **Min Li**, Xiangyu Zhou, Jiaxin Wu, Edward M. Golenberg, Dongxiao Zhu, Peimin He#, Chuanzhu Fan#.
 

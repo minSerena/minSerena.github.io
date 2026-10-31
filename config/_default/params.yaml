@@ -9,9 +9,11 @@ hugoblox:
   theme:
     mode: system
     pack: default
+    # Muted academic purple. A hex value becomes the 500 shade; the theme derives
+    # 50-950 by mixing with white/black. Secondary is a soft plum for gradients.
     colors:
-      primary: ''
-      secondary: ''
+      primary: '#7c6aae'
+      secondary: '#9a6f9e'
       neutral: ''
   typography:
     font: serif

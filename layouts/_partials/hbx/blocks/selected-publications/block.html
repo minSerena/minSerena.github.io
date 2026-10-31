@@ -1,0 +1,44 @@
+{{/* Custom block: Selected Publications. Lists publications marked `featured: true`,
+     newest first, each with a one-sentence contribution (`highlight` in the paper's
+     front matter), the author list (owner highlighted, * / # notes, via the theme's
+     page_metadata_authors partial) and DOI link.
+     Usage in content/_index.md:
+       - block: selected-publications
+         id: selected
+         content: { title: ..., text: ... } */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ $pubs := where (where site.RegularPages "Section" "publications") "Params.featured" true }}
+{{ with $pubs }}
+  {{ with index $content "title" }}
+  <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6 md:px-0">
+    <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ printf "%v" . | $page.RenderString }}</div>
+    {{ with index $content "text" }}<p>{{ printf "%v" . | $page.RenderString }}</p>{{ end }}
+  </div>
+  {{ end }}
+  <div class="selected-wrap">
+    <ol class="selected-list">
+      {{ range .ByDate.Reverse }}
+      {{ $doi := "" }}{{ with .Params.hugoblox }}{{ with .ids }}{{ $doi = .doi }}{{ end }}{{ end }}
+      <li class="selected-pub">
+        <div class="selected-pub__meta">
+          <span class="selected-pub__year">{{ .Date.Format "2006" }}</span>
+          {{ with .Params.publication }}<span class="selected-pub__venue">{{ index (split . ",") 0 }}</span>{{ end }}
+        </div>
+        <h3 class="selected-pub__title">
+          {{ with $doi }}<a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">{{ end }}{{ .Title }}{{ with $doi }}</a>{{ end }}
+        </h3>
+        {{ with .Params.highlight }}<p class="selected-pub__highlight">{{ . | $page.RenderString }}</p>{{ end }}
+        {{/* div, not p: the author partial renders block-level tooltips. */}}
+        <div class="selected-pub__authors">{{ partial "page_metadata_authors" . }}</div>
+        {{ with $doi }}
+        <a class="selected-pub__link" href="https://doi.org/{{ . }}" target="_blank" rel="noopener">DOI: {{ . }} <span aria-hidden="true">↗</span></a>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+{{ end }}
