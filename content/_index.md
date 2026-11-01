@@ -68,23 +68,33 @@ sections:
   id: teaching
   content:
     title: Teaching
-    text: '**Graduate Teaching Assistant** · Department of Biological Sciences, Wayne State University
-      · **2024–Present**
+    text: '### Graduate Teaching Assistant
+
+      **Wayne State University · Department of Biological Sciences · 2024–Present**
 
 
-      Genetics (BIO 3070) and Principles of Microbiology Lab (BIO 2271).
+      | Semester | Course |
 
+      | --- | --- |
 
-      [View teaching history](experience/#teaching).'
+      | Fall 2026 | Genetics (BIO 3070) |
+
+      | Spring/Summer 2026 | Principles of Microbiology Lab (BIO 2271) |
+
+      | Winter 2026 | Genetics (BIO 3070) |
+
+      | Fall 2025 | Genetics (BIO 3070) |
+
+      | Spring/Summer 2025 | Genetics (BIO 3070) |
+
+      | Winter 2025 | Genetics (BIO 3070) |
+
+      | Fall 2024 | Genetics (BIO 3070) |'
   design:
     columns: '1'
 - block: honors
   id: awards
   content:
     title: Awards & Recognition
-- block: background-cards
-  id: experience
-  content:
-    username: me
 lastmod: '2026-10-08'
 ---
